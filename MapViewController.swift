@@ -12,4 +12,8 @@ import MapKit
 
 class MapViewController: ViewController {
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
