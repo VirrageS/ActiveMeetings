@@ -23,4 +23,5 @@ enum SportTypes: String {
     case Bicycle = "Rower"
     case Basketball = "Koszykówka"
     case Football = "Piłka nożna"
+    case Volleyball = "Siatkówka"
 }
