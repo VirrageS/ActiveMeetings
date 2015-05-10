@@ -17,6 +17,7 @@ class SportPickerViewController: UITableViewController {
         
         self.title = "Sport"
         
+        self.tableView.contentInset = UIEdgeInsetsMake(-35, 0, 0, 0);
         self.navigationController!.navigationBar.barTintColor = UIColor(red: 216/255, green: 192/255, blue: 53/255, alpha: 1.0)
         self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "AvenirNext-Bold", size: 22)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
     }

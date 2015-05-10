@@ -136,14 +136,12 @@
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="McI-8j-1al"/>
                                 </items>
                             </toolbar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="lpu-NL-bze">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="312"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="10" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="lpu-NL-bze">
+                                <rect key="frame" x="0.0" y="64" width="600" height="420"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="312" id="9nA-nx-2WX"/>
                                 </constraints>
-                                <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="0.4941176471" green="0.72941176470000002" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" id="YO3-7a-Sa2">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -152,17 +150,33 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9nA-nx-2WX"/>
+                                    </mask>
+                                </variation>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lpu-NL-bze" firstAttribute="leading" secondItem="l2e-Ca-yGU" secondAttribute="leading" id="EZb-JT-8Pe"/>
+                            <constraint firstItem="lpu-NL-bze" firstAttribute="top" secondItem="Dpm-s7-9M7" secondAttribute="bottom" id="OzJ-ru-q5g"/>
                             <constraint firstItem="l2e-Ca-yGU" firstAttribute="leading" secondItem="Jpt-at-Pfd" secondAttribute="leading" id="U4c-GF-45C"/>
+                            <constraint firstItem="l2e-Ca-yGU" firstAttribute="top" secondItem="lpu-NL-bze" secondAttribute="bottom" constant="72" id="Uqk-1a-lRA"/>
+                            <constraint firstItem="lpu-NL-bze" firstAttribute="leading" secondItem="l2e-Ca-yGU" secondAttribute="leading" id="WqL-hU-7CT"/>
                             <constraint firstItem="lpu-NL-bze" firstAttribute="trailing" secondItem="l2e-Ca-yGU" secondAttribute="trailing" id="Y6E-Fv-eOu"/>
                             <constraint firstItem="lpu-NL-bze" firstAttribute="top" secondItem="Dpm-s7-9M7" secondAttribute="bottom" constant="-64" id="fmA-Eb-cLL"/>
+                            <constraint firstItem="lpu-NL-bze" firstAttribute="trailing" secondItem="l2e-Ca-yGU" secondAttribute="trailing" id="mMe-b2-4Og"/>
                             <constraint firstItem="l2e-Ca-yGU" firstAttribute="bottom" secondItem="gUi-Ya-29J" secondAttribute="top" id="pT5-re-Kak"/>
                             <constraint firstItem="l2e-Ca-yGU" firstAttribute="width" secondItem="Jpt-at-Pfd" secondAttribute="width" id="zeR-bn-emq"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="EZb-JT-8Pe"/>
+                                <exclude reference="Y6E-Fv-eOu"/>
+                                <exclude reference="fmA-Eb-cLL"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="lpu-NL-bze" id="vwA-0e-QiT"/>
