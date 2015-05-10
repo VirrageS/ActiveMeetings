@@ -146,8 +146,8 @@
 		4569E9C61AFFF8AB00119718 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				4569E9B71AFFF84A00119718 /* Mode.swift */,
 				4569E9B91AFFF85500119718 /* Sport.swift */,
+				4569E9B71AFFF84A00119718 /* Mode.swift */,
 				4569E9BB1AFFF85F00119718 /* MapPin.swift */,
 				4569E9BD1AFFF87500119718 /* Event.swift */,
 				4569E9BF1AFFF87E00119718 /* Const.swift */,

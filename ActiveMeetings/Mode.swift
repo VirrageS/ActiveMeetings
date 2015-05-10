@@ -17,6 +17,9 @@ class Mode {
 }
 
 enum ModeTypes: String {
-    case Amateur = "Zaawansowany"
+    case Sporty = "Sportowy"
+    case Amateur = "Amatorski"
     case Recreational = "Rekreacyjny"
+    
+    case Downhill = "Downhill"
 }
