@@ -13,23 +13,32 @@ let sports = [
         name: SportTypes.Bicycle,
         modes: [
             Mode(name: ModeTypes.Recreational),
-            Mode(name: ModeTypes.Amateur)
+            Mode(name: ModeTypes.Sporty),
+            Mode(name: ModeTypes.Amateur),
+            Mode(name: ModeTypes.Downhill)
         ]
     ),
     
     Sport(
         name: SportTypes.Football,
         modes: [
-            Mode(name: ModeTypes.Recreational),
-            Mode(name: ModeTypes.Amateur)
+            Mode(name: ModeTypes.Amateur),
+            Mode(name: ModeTypes.Sporty)
         ]
     ),
     
     Sport(
         name: SportTypes.Basketball,
         modes: [
-            Mode(name: ModeTypes.Recreational),
+            Mode(name: ModeTypes.Sporty),
             Mode(name: ModeTypes.Amateur)
+        ]
+    ),
+    
+    Sport(
+        name: SportTypes.Rollers,
+        modes: [
+            Mode(name: ModeTypes.Sporty)
         ]
     )
 ]
