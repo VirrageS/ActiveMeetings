@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4547CB311AFFFFF8002BE960 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4547CB301AFFFFF8002BE960 /* MapViewController.swift */; };
+		4547CB631B0024DF002BE960 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4547CB621B0024DF002BE960 /* Account.swift */; };
 		4569E9941AFFF7A000119718 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9931AFFF7A000119718 /* AppDelegate.swift */; };
 		4569E9961AFFF7A000119718 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9951AFFF7A000119718 /* ViewController.swift */; };
 		4569E9991AFFF7A000119718 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4569E9971AFFF7A000119718 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		4547CB301AFFFFF8002BE960 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../MapViewController.swift; sourceTree = "<group>"; };
+		4547CB621B0024DF002BE960 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		4569E98E1AFFF7A000119718 /* ActiveMeetings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActiveMeetings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4569E9921AFFF7A000119718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4569E9931AFFF7A000119718 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 		4569E9C61AFFF8AB00119718 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				4547CB621B0024DF002BE960 /* Account.swift */,
 				4569E9B91AFFF85500119718 /* Sport.swift */,
 				4569E9B71AFFF84A00119718 /* Mode.swift */,
 				4569E9BB1AFFF85F00119718 /* MapPin.swift */,
@@ -260,6 +263,7 @@
 				4569E9B81AFFF84A00119718 /* Mode.swift in Sources */,
 				4569E9BC1AFFF85F00119718 /* MapPin.swift in Sources */,
 				4569E9B41AFFF83200119718 /* SportPickerViewController.swift in Sources */,
+				4547CB631B0024DF002BE960 /* Account.swift in Sources */,
 				4569E9941AFFF7A000119718 /* AppDelegate.swift in Sources */,
 				4547CB311AFFFFF8002BE960 /* MapViewController.swift in Sources */,
 				4569E9BA1AFFF85500119718 /* Sport.swift in Sources */,
