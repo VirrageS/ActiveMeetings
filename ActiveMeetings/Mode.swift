@@ -16,6 +16,6 @@ class Mode {
     }
 }
 
-enum ModeTypes: String = {
+enum ModeTypes: String {
     case Amateur = "Zaawansowany"
 }

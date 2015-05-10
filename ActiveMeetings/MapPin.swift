@@ -6,4 +6,21 @@
 //  Copyright (c) 2015 VirrageS. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import MapKit
+
+class MapPin: NSObject, MKAnnotation {
+    var title: String
+    var subtitle: String
+    var coordinate: CLLocationCoordinate2D
+    
+    var event: Event
+    
+    init(event: Event) {
+        self.title = event.name
+        self.subtitle = event.description
+        self.coordinate = event.coordinate
+        
+        self.event = event
+    }
+}
