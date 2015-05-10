@@ -55,8 +55,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         var annotations: [MKAnnotation] = []
         
         for var i = 0; i < 20; ++i {
-            let latitude: Double = 0//Double(arc4random_uniform(200) - 100)
-            let longitude: Double = 0//Double(arc4random_uniform(200) - 100)
+            let latitude: Double = 0.0003 * Double(Int(arc4random_uniform(200)) - 100)
+            let longitude: Double = 0.0003 * Double(Int(arc4random_uniform(200)) - 100)
             let newLocation = CLLocationCoordinate2D(latitude: location.latitude + latitude, longitude: location.longitude + longitude)
             
             let event = Event(name: "Event name: " + String(i), description: "Event description: " + String(i), coordinate: newLocation, creator: "Tomek")
