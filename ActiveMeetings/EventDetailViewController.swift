@@ -15,13 +15,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     var event: Event? {
         didSet {
             // Update the view.
-            self.updateTitle()
-        }
-    }
-    
-    func updateTitle() {
-        if let event: Event = self.event {
-            self.title = event.name
+//            self.updateTitle()
         }
     }
     
@@ -31,7 +25,8 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        self.updateTitle()
+        self.title = "Detale"
+//        self.updateTitle()
         
         //self.tableView.contentInset = UIEdgeInsetsMake(-35, 0, 0, 0);
         self.navigationController!.navigationBar.barTintColor = UIColor(red: 216/255, green: 192/255, blue: 53/255, alpha: 1.0)
@@ -65,7 +60,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             case 0:
                 text = event!.name
             case 1:
-                text = event!.creator
+                text = event!.description
             case 2:
                 text = String(stringInterpolationSegment: event?.coordinate)
             default:
@@ -76,7 +71,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             case 0:
                 text = event!.creator
             case 1:
-                text = "Dołączyło już 0 osób"
+                text = "Dołączyło już " + String(event!.pariticipants) + " osób"
             default:
                 text = "Default"
             }
