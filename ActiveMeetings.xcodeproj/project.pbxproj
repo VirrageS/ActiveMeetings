@@ -13,6 +13,15 @@
 		4569E99B1AFFF7A000119718 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4569E99A1AFFF7A000119718 /* Images.xcassets */; };
 		4569E99E1AFFF7A000119718 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4569E99C1AFFF7A000119718 /* LaunchScreen.xib */; };
 		4569E9AA1AFFF7A000119718 /* ActiveMeetingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9A91AFFF7A000119718 /* ActiveMeetingsTests.swift */; };
+		4569E9B41AFFF83200119718 /* SportPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9B31AFFF83200119718 /* SportPickerViewController.swift */; };
+		4569E9B61AFFF84100119718 /* ModePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9B51AFFF84100119718 /* ModePickerViewController.swift */; };
+		4569E9B81AFFF84A00119718 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9B71AFFF84A00119718 /* Mode.swift */; };
+		4569E9BA1AFFF85500119718 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9B91AFFF85500119718 /* Sport.swift */; };
+		4569E9BC1AFFF85F00119718 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9BB1AFFF85F00119718 /* MapPin.swift */; };
+		4569E9BE1AFFF87500119718 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9BD1AFFF87500119718 /* Event.swift */; };
+		4569E9C01AFFF87E00119718 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9BF1AFFF87E00119718 /* Const.swift */; };
+		4569E9C21AFFF88800119718 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9C11AFFF88800119718 /* MapViewController.swift */; };
+		4569E9C41AFFF89700119718 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9C31AFFF89700119718 /* EventDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +45,15 @@
 		4569E9A31AFFF7A000119718 /* ActiveMeetingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ActiveMeetingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4569E9A81AFFF7A000119718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4569E9A91AFFF7A000119718 /* ActiveMeetingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveMeetingsTests.swift; sourceTree = "<group>"; };
+		4569E9B31AFFF83200119718 /* SportPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportPickerViewController.swift; sourceTree = "<group>"; };
+		4569E9B51AFFF84100119718 /* ModePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModePickerViewController.swift; sourceTree = "<group>"; };
+		4569E9B71AFFF84A00119718 /* Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
+		4569E9B91AFFF85500119718 /* Sport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
+		4569E9BB1AFFF85F00119718 /* MapPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
+		4569E9BD1AFFF87500119718 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		4569E9BF1AFFF87E00119718 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		4569E9C11AFFF88800119718 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		4569E9C31AFFF89700119718 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +98,12 @@
 				4569E9931AFFF7A000119718 /* AppDelegate.swift */,
 				4569E9951AFFF7A000119718 /* ViewController.swift */,
 				4569E9971AFFF7A000119718 /* Main.storyboard */,
+				4569E9B31AFFF83200119718 /* SportPickerViewController.swift */,
+				4569E9B51AFFF84100119718 /* ModePickerViewController.swift */,
+				4569E9C51AFFF89C00119718 /* View Controllers */,
+				4569E9C61AFFF8AB00119718 /* Objects */,
+				4569E9C11AFFF88800119718 /* MapViewController.swift */,
+				4569E9C31AFFF89700119718 /* EventDetailViewController.swift */,
 				4569E99A1AFFF7A000119718 /* Images.xcassets */,
 				4569E99C1AFFF7A000119718 /* LaunchScreen.xib */,
 				4569E9911AFFF7A000119718 /* Supporting Files */,
@@ -110,6 +134,25 @@
 				4569E9A81AFFF7A000119718 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4569E9C51AFFF89C00119718 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4569E9C61AFFF8AB00119718 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				4569E9B71AFFF84A00119718 /* Mode.swift */,
+				4569E9B91AFFF85500119718 /* Sport.swift */,
+				4569E9BB1AFFF85F00119718 /* MapPin.swift */,
+				4569E9BD1AFFF87500119718 /* Event.swift */,
+				4569E9BF1AFFF87E00119718 /* Const.swift */,
+			);
+			name = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +255,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4569E9BE1AFFF87500119718 /* Event.swift in Sources */,
 				4569E9961AFFF7A000119718 /* ViewController.swift in Sources */,
+				4569E9B81AFFF84A00119718 /* Mode.swift in Sources */,
+				4569E9C21AFFF88800119718 /* MapViewController.swift in Sources */,
+				4569E9BC1AFFF85F00119718 /* MapPin.swift in Sources */,
+				4569E9B41AFFF83200119718 /* SportPickerViewController.swift in Sources */,
 				4569E9941AFFF7A000119718 /* AppDelegate.swift in Sources */,
+				4569E9BA1AFFF85500119718 /* Sport.swift in Sources */,
+				4569E9B61AFFF84100119718 /* ModePickerViewController.swift in Sources */,
+				4569E9C41AFFF89700119718 /* EventDetailViewController.swift in Sources */,
+				4569E9C01AFFF87E00119718 /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
