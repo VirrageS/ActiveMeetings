@@ -10,9 +10,9 @@ import Foundation
 
 let sports = [
     Sport(
-        name = SportTypes.Bicycle,
-        modes = [
-            Mode(ModeTypes.Amateur)
+        name: SportTypes.Bicycle,
+        modes: [
+            Mode(name: ModeTypes.Amateur)
         ]
     )
 ]
