@@ -12,6 +12,23 @@ let sports = [
     Sport(
         name: SportTypes.Bicycle,
         modes: [
+            Mode(name: ModeTypes.Recreational),
+            Mode(name: ModeTypes.Amateur)
+        ]
+    ),
+    
+    Sport(
+        name: SportTypes.Football,
+        modes: [
+            Mode(name: ModeTypes.Recreational),
+            Mode(name: ModeTypes.Amateur)
+        ]
+    ),
+    
+    Sport(
+        name: SportTypes.Basketball,
+        modes: [
+            Mode(name: ModeTypes.Recreational),
             Mode(name: ModeTypes.Amateur)
         ]
     )

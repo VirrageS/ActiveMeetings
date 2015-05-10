@@ -16,6 +16,9 @@ class SportPickerViewController: UITableViewController {
         super.viewDidLoad()
         
         self.title = "Sport"
+        
+        self.navigationController!.navigationBar.barTintColor = UIColor(red: 216/255, green: 192/255, blue: 53/255, alpha: 1.0)
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "AvenirNext-Bold", size: 22)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
     }
 
     // MARK: - Segues
@@ -41,6 +44,8 @@ class SportPickerViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("sportCell", forIndexPath: indexPath) as! UITableViewCell
         
         cell.textLabel!.text = sports[indexPath.row].name
+        cell.textLabel!.textColor = UIColor(red: 126/255, green: 186/255, blue: 179/255, alpha: 1.0)
+        cell.textLabel!.font = UIFont(name: "AvenirNext", size: 15)
         return cell
     }
 }

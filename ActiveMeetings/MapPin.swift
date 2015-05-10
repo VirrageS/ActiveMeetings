@@ -22,5 +22,7 @@ class MapPin: NSObject, MKAnnotation {
         self.coordinate = event.coordinate
         
         self.event = event
+        
+        super.init()
     }
 }
