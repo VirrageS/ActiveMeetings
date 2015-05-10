@@ -15,6 +15,7 @@ class Event {
     var description: String
     var creator: String
     var coordinate: CLLocationCoordinate2D
+    var pariticipants: Int = 0
     
     init(name: String, description: String, coordinate: CLLocationCoordinate2D, creator: String) {
         self.name = name
@@ -22,5 +23,13 @@ class Event {
         self.coordinate = coordinate
         
         self.creator = creator
+    }
+    
+    func addParticipant() {
+        pariticipants++
+    }
+    
+    func removeParticipant() {
+        pariticipants--
     }
 }
