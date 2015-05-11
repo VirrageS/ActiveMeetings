@@ -13,9 +13,13 @@ class Sport {
     
     var modes: [Mode]
     
-    init(name: SportTypes, modes: [Mode]) {
-        self.name = name.rawValue
+    var type: SportTypes
+    
+    init(type: SportTypes, modes: [Mode]) {
+        self.name = type.rawValue
         self.modes = modes
+        
+        self.type = type
     }
 }
 

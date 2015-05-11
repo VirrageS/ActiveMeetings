@@ -10,35 +10,35 @@ import Foundation
 
 let sports = [
     Sport(
-        name: SportTypes.Bicycle,
+        type: SportTypes.Bicycle,
         modes: [
-            Mode(name: ModeTypes.Recreational),
-            Mode(name: ModeTypes.Sporty),
-            Mode(name: ModeTypes.Amateur),
-            Mode(name: ModeTypes.Downhill)
+            Mode(type: ModeTypes.Recreational),
+            Mode(type: ModeTypes.Sporty),
+            Mode(type: ModeTypes.Amateur),
+            Mode(type: ModeTypes.Downhill)
         ]
     ),
     
     Sport(
-        name: SportTypes.Football,
+        type: SportTypes.Football,
         modes: [
-            Mode(name: ModeTypes.Amateur),
-            Mode(name: ModeTypes.Sporty)
+            Mode(type: ModeTypes.Amateur),
+            Mode(type: ModeTypes.Sporty)
         ]
     ),
     
     Sport(
-        name: SportTypes.Basketball,
+        type: SportTypes.Basketball,
         modes: [
-            Mode(name: ModeTypes.Sporty),
-            Mode(name: ModeTypes.Amateur)
+            Mode(type: ModeTypes.Sporty),
+            Mode(type: ModeTypes.Amateur)
         ]
     ),
     
     Sport(
-        name: SportTypes.Rollers,
+        type: SportTypes.Rollers,
         modes: [
-            Mode(name: ModeTypes.Sporty)
+            Mode(type: ModeTypes.Sporty)
         ]
     )
 ]

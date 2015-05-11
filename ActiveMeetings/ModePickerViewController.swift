@@ -39,6 +39,7 @@ class ModePickerViewController: UITableViewController {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 let mode = self.sport!.modes[indexPath.row] as Mode
                 (segue.destinationViewController as! MapViewController).mode = mode
+                (segue.destinationViewController as! MapViewController).sport = self.sport
             }
         }
     }

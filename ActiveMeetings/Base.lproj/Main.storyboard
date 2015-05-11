@@ -137,7 +137,7 @@
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="10" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="lpu-NL-bze">
-                                <rect key="frame" x="0.0" y="64" width="600" height="420"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="312" id="9nA-nx-2WX"/>
@@ -160,14 +160,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lpu-NL-bze" firstAttribute="leading" secondItem="l2e-Ca-yGU" secondAttribute="leading" id="EZb-JT-8Pe"/>
-                            <constraint firstItem="lpu-NL-bze" firstAttribute="top" secondItem="Dpm-s7-9M7" secondAttribute="bottom" id="OzJ-ru-q5g"/>
+                            <constraint firstItem="lpu-NL-bze" firstAttribute="leading" secondItem="l2e-Ca-yGU" secondAttribute="leading" id="NJZ-Bc-qmV"/>
                             <constraint firstItem="l2e-Ca-yGU" firstAttribute="leading" secondItem="Jpt-at-Pfd" secondAttribute="leading" id="U4c-GF-45C"/>
-                            <constraint firstItem="l2e-Ca-yGU" firstAttribute="top" secondItem="lpu-NL-bze" secondAttribute="bottom" constant="72" id="Uqk-1a-lRA"/>
-                            <constraint firstItem="lpu-NL-bze" firstAttribute="leading" secondItem="l2e-Ca-yGU" secondAttribute="leading" id="WqL-hU-7CT"/>
+                            <constraint firstItem="lpu-NL-bze" firstAttribute="bottom" secondItem="l2e-Ca-yGU" secondAttribute="top" id="WY6-77-kOq"/>
                             <constraint firstItem="lpu-NL-bze" firstAttribute="trailing" secondItem="l2e-Ca-yGU" secondAttribute="trailing" id="Y6E-Fv-eOu"/>
+                            <constraint firstItem="lpu-NL-bze" firstAttribute="trailing" secondItem="l2e-Ca-yGU" secondAttribute="trailing" id="ei1-vt-vd0"/>
                             <constraint firstItem="lpu-NL-bze" firstAttribute="top" secondItem="Dpm-s7-9M7" secondAttribute="bottom" constant="-64" id="fmA-Eb-cLL"/>
-                            <constraint firstItem="lpu-NL-bze" firstAttribute="trailing" secondItem="l2e-Ca-yGU" secondAttribute="trailing" id="mMe-b2-4Og"/>
                             <constraint firstItem="l2e-Ca-yGU" firstAttribute="bottom" secondItem="gUi-Ya-29J" secondAttribute="top" id="pT5-re-Kak"/>
+                            <constraint firstItem="lpu-NL-bze" firstAttribute="top" secondItem="Dpm-s7-9M7" secondAttribute="bottom" id="uMr-RB-QNm"/>
                             <constraint firstItem="l2e-Ca-yGU" firstAttribute="width" secondItem="Jpt-at-Pfd" secondAttribute="width" id="zeR-bn-emq"/>
                         </constraints>
                         <variation key="default">

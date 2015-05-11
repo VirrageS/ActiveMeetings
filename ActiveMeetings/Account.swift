@@ -9,8 +9,15 @@
 import Foundation
 
 class Account {
+    /// ID of the account
     var id: Int64
+    
+    // TODO: change to SHA256 it must be protected!
+    /// Username of the account
     var username: String
+    
+    // TODO: change to SHA256 it must be protected!
+    /// Password od the account
     var password: String
     
     var realName: String

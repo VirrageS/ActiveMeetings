@@ -11,8 +11,12 @@ import Foundation
 class Mode {
     var name: String
     
-    init(name: ModeTypes) {
-        self.name = name.rawValue
+    var type: ModeTypes
+    
+    init(type: ModeTypes) {
+        self.name = type.rawValue
+        
+        self.type = type
     }
 }
 

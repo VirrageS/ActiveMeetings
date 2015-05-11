@@ -12,6 +12,11 @@ import UIKit
 class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
+    var sport: Sport? {
+        didSet {
+            // Something
+        }
+    }
     
     var mode: Mode? {
         didSet {
@@ -59,7 +64,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let longitude: Double = 0.0003 * Double(Int(arc4random_uniform(200)) - 100)
             let newLocation = CLLocationCoordinate2D(latitude: location.latitude + latitude, longitude: location.longitude + longitude)
             
-            var event = Event(name: "Event name: " + String(i), description: "Event description: " + String(i), coordinate: newLocation, creator: "Tomek")
+            // FIXME: sport and mode should take values from segue
+            var event = Event(id: 10, name: "Event name: " + String(i), description: "Event description: " + String(i), coordinate: newLocation, creator: "Tomek", sport: SportTypes.Basketball, mode: ModeTypes.Recreational)
             event.pariticipants = Int(arc4random_uniform(20) + 5)
             
             let annotation = MapPin(event: event)

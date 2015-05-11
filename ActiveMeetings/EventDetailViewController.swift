@@ -14,21 +14,21 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     var event: Event? {
         didSet {
-            // Update the view.
-//            self.updateTitle()
+            // ?
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // It must be set to make visible tableView function
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
+
+        // Title
         self.title = "Detale"
-//        self.updateTitle()
-        
-        //self.tableView.contentInset = UIEdgeInsetsMake(-35, 0, 0, 0);
+
+        // Navigation bar and title color
         self.navigationController!.navigationBar.barTintColor = UIColor(red: 216/255, green: 192/255, blue: 53/255, alpha: 1.0)
         self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName : UIFont(name: "AvenirNext-Bold", size: 22)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
     }
@@ -55,6 +55,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
         
         var text: String = ""
         switch indexPath.section {
+        // Ogolne
         case 0:
             switch indexPath.row {
             case 0:
@@ -66,6 +67,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate, UITableV
             default:
                 text = "Default"
             }
+        // Zalozyciel
         case 1:
             switch indexPath.row {
             case 0:
