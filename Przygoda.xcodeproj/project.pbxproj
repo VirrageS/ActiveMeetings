@@ -16,12 +16,12 @@
 		45D251DD1B3B579600754657 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D31B3B579600754657 /* Event.swift */; };
 		45D251DE1B3B579600754657 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D41B3B579600754657 /* EventDetailViewController.swift */; };
 		45D251DF1B3B579600754657 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D51B3B579600754657 /* MapPin.swift */; };
-		45D251E01B3B579600754657 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D61B3B579600754657 /* MapViewController.swift */; };
 		45D251E11B3B579600754657 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D71B3B579600754657 /* Mode.swift */; };
 		45D251E21B3B579600754657 /* ModePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D81B3B579600754657 /* ModePickerViewController.swift */; };
 		45D251E31B3B579600754657 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D91B3B579600754657 /* Sport.swift */; };
 		45D251E41B3B579600754657 /* SportPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251DA1B3B579600754657 /* SportPickerViewController.swift */; };
 		45D251E51B3B579600754657 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251DB1B3B579600754657 /* ViewController.swift */; };
+		45D251E91B3B5DD200754657 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D61B3B579600754657 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -263,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45D251E91B3B5DD200754657 /* MapViewController.swift in Sources */,
 				45D251DE1B3B579600754657 /* EventDetailViewController.swift in Sources */,
 				45D251E31B3B579600754657 /* Sport.swift in Sources */,
 				45D251DF1B3B579600754657 /* MapPin.swift in Sources */,
@@ -272,7 +273,6 @@
 				45D251E51B3B579600754657 /* ViewController.swift in Sources */,
 				45D251B11B3B570100754657 /* AppDelegate.swift in Sources */,
 				45D251DD1B3B579600754657 /* Event.swift in Sources */,
-				45D251E01B3B579600754657 /* MapViewController.swift in Sources */,
 				45D251E11B3B579600754657 /* Mode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +400,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Przygoda/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -410,6 +411,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Przygoda/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
