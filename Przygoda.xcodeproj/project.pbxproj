@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4547CB311AFFFFF8002BE960 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4547CB301AFFFFF8002BE960 /* MapViewController.swift */; };
+		453C4DE31B3B546600D313AB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C4DE21B3B546500D313AB /* MapViewController.swift */; };
 		4569E9941AFFF7A000119718 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9931AFFF7A000119718 /* AppDelegate.swift */; };
 		4569E9961AFFF7A000119718 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9951AFFF7A000119718 /* ViewController.swift */; };
 		4569E9991AFFF7A000119718 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4569E9971AFFF7A000119718 /* Main.storyboard */; };
@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4547CB301AFFFFF8002BE960 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../MapViewController.swift; sourceTree = "<group>"; };
+		453C4DE21B3B546500D313AB /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		4569E98E1AFFF7A000119718 /* Przygoda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Przygoda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4569E9921AFFF7A000119718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4569E9931AFFF7A000119718 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 			children = (
 				4569E9B31AFFF83200119718 /* SportPickerViewController.swift */,
 				4569E9B51AFFF84100119718 /* ModePickerViewController.swift */,
-				4547CB301AFFFFF8002BE960 /* MapViewController.swift */,
+				453C4DE21B3B546500D313AB /* MapViewController.swift */,
 				4569E9C31AFFF89700119718 /* EventDetailViewController.swift */,
 			);
 			name = "View Controllers";
@@ -257,13 +257,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				453C4DE31B3B546600D313AB /* MapViewController.swift in Sources */,
 				4569E9BE1AFFF87500119718 /* Event.swift in Sources */,
 				4569E9961AFFF7A000119718 /* ViewController.swift in Sources */,
 				4569E9B81AFFF84A00119718 /* Mode.swift in Sources */,
 				4569E9BC1AFFF85F00119718 /* MapPin.swift in Sources */,
 				4569E9B41AFFF83200119718 /* SportPickerViewController.swift in Sources */,
 				4569E9941AFFF7A000119718 /* AppDelegate.swift in Sources */,
-				4547CB311AFFFFF8002BE960 /* MapViewController.swift in Sources */,
 				4569E9BA1AFFF85500119718 /* Sport.swift in Sources */,
 				4569E9B61AFFF84100119718 /* ModePickerViewController.swift in Sources */,
 				4569E9C41AFFF89700119718 /* EventDetailViewController.swift in Sources */,
