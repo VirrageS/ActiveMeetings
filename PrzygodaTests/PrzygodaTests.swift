@@ -1,15 +1,15 @@
 //
-//  ActiveMeetingsTests.swift
-//  ActiveMeetingsTests
+//  PrzygodaTests.swift
+//  PrzygodaTests
 //
-//  Created by Janusz Marcinkiewicz on 10.05.2015.
+//  Created by Janusz Marcinkiewicz on 24.06.2015.
 //  Copyright (c) 2015 VirrageS. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class ActiveMeetingsTests: XCTestCase {
+class PrzygodaTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
