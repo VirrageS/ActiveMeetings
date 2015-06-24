@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>ActiveMeetings.xcscheme</key>
+		<key>Przygoda.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4569E98D1AFFF7A000119718</key>
+		<key>45D251AA1B3B570100754657</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4569E9A21AFFF7A000119718</key>
+		<key>45D251C11B3B570100754657</key>
 		<dict>
 			<key>primary</key>
 			<true/>

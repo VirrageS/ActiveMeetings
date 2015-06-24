@@ -7,64 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		453C4DE31B3B546600D313AB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C4DE21B3B546500D313AB /* MapViewController.swift */; };
-		4569E9941AFFF7A000119718 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9931AFFF7A000119718 /* AppDelegate.swift */; };
-		4569E9961AFFF7A000119718 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9951AFFF7A000119718 /* ViewController.swift */; };
-		4569E9991AFFF7A000119718 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4569E9971AFFF7A000119718 /* Main.storyboard */; };
-		4569E99B1AFFF7A000119718 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4569E99A1AFFF7A000119718 /* Images.xcassets */; };
-		4569E99E1AFFF7A000119718 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4569E99C1AFFF7A000119718 /* LaunchScreen.xib */; };
-		4569E9AA1AFFF7A000119718 /* ActiveMeetingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9A91AFFF7A000119718 /* ActiveMeetingsTests.swift */; };
-		4569E9B41AFFF83200119718 /* SportPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9B31AFFF83200119718 /* SportPickerViewController.swift */; };
-		4569E9B61AFFF84100119718 /* ModePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9B51AFFF84100119718 /* ModePickerViewController.swift */; };
-		4569E9B81AFFF84A00119718 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9B71AFFF84A00119718 /* Mode.swift */; };
-		4569E9BA1AFFF85500119718 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9B91AFFF85500119718 /* Sport.swift */; };
-		4569E9BC1AFFF85F00119718 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9BB1AFFF85F00119718 /* MapPin.swift */; };
-		4569E9BE1AFFF87500119718 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9BD1AFFF87500119718 /* Event.swift */; };
-		4569E9C01AFFF87E00119718 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9BF1AFFF87E00119718 /* Const.swift */; };
-		4569E9C41AFFF89700119718 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569E9C31AFFF89700119718 /* EventDetailViewController.swift */; };
+		45D251B11B3B570100754657 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251B01B3B570100754657 /* AppDelegate.swift */; };
+		45D251B81B3B570100754657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D251B61B3B570100754657 /* Main.storyboard */; };
+		45D251BA1B3B570100754657 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D251B91B3B570100754657 /* Images.xcassets */; };
+		45D251BD1B3B570100754657 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45D251BB1B3B570100754657 /* LaunchScreen.xib */; };
+		45D251C91B3B570100754657 /* PrzygodaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251C81B3B570100754657 /* PrzygodaTests.swift */; };
+		45D251DC1B3B579600754657 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D21B3B579600754657 /* Const.swift */; };
+		45D251DD1B3B579600754657 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D31B3B579600754657 /* Event.swift */; };
+		45D251DE1B3B579600754657 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D41B3B579600754657 /* EventDetailViewController.swift */; };
+		45D251DF1B3B579600754657 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D51B3B579600754657 /* MapPin.swift */; };
+		45D251E01B3B579600754657 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D61B3B579600754657 /* MapViewController.swift */; };
+		45D251E11B3B579600754657 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D71B3B579600754657 /* Mode.swift */; };
+		45D251E21B3B579600754657 /* ModePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D81B3B579600754657 /* ModePickerViewController.swift */; };
+		45D251E31B3B579600754657 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D91B3B579600754657 /* Sport.swift */; };
+		45D251E41B3B579600754657 /* SportPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251DA1B3B579600754657 /* SportPickerViewController.swift */; };
+		45D251E51B3B579600754657 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251DB1B3B579600754657 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4569E9A41AFFF7A000119718 /* PBXContainerItemProxy */ = {
+		45D251C31B3B570100754657 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4569E9861AFFF7A000119718 /* Project object */;
+			containerPortal = 45D251A31B3B570100754657 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4569E98D1AFFF7A000119718;
-			remoteInfo = ActiveMeetings;
+			remoteGlobalIDString = 45D251AA1B3B570100754657;
+			remoteInfo = Przygoda;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		453C4DE21B3B546500D313AB /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		4569E98E1AFFF7A000119718 /* Przygoda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Przygoda.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4569E9921AFFF7A000119718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4569E9931AFFF7A000119718 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4569E9951AFFF7A000119718 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4569E9981AFFF7A000119718 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4569E99A1AFFF7A000119718 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4569E99D1AFFF7A000119718 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		4569E9A31AFFF7A000119718 /* PrzygodaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrzygodaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4569E9A81AFFF7A000119718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4569E9A91AFFF7A000119718 /* ActiveMeetingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveMeetingsTests.swift; sourceTree = "<group>"; };
-		4569E9B31AFFF83200119718 /* SportPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportPickerViewController.swift; sourceTree = "<group>"; };
-		4569E9B51AFFF84100119718 /* ModePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModePickerViewController.swift; sourceTree = "<group>"; };
-		4569E9B71AFFF84A00119718 /* Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
-		4569E9B91AFFF85500119718 /* Sport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
-		4569E9BB1AFFF85F00119718 /* MapPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
-		4569E9BD1AFFF87500119718 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		4569E9BF1AFFF87E00119718 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
-		4569E9C31AFFF89700119718 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		45D251AB1B3B570100754657 /* Przygoda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Przygoda.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45D251AF1B3B570100754657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45D251B01B3B570100754657 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		45D251B71B3B570100754657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		45D251B91B3B570100754657 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		45D251BC1B3B570100754657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		45D251C21B3B570100754657 /* PrzygodaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrzygodaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45D251C71B3B570100754657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45D251C81B3B570100754657 /* PrzygodaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrzygodaTests.swift; sourceTree = "<group>"; };
+		45D251D21B3B579600754657 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		45D251D31B3B579600754657 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		45D251D41B3B579600754657 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		45D251D51B3B579600754657 /* MapPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
+		45D251D61B3B579600754657 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		45D251D71B3B579600754657 /* Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
+		45D251D81B3B579600754657 /* ModePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModePickerViewController.swift; sourceTree = "<group>"; };
+		45D251D91B3B579600754657 /* Sport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
+		45D251DA1B3B579600754657 /* SportPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportPickerViewController.swift; sourceTree = "<group>"; };
+		45D251DB1B3B579600754657 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4569E98B1AFFF7A000119718 /* Frameworks */ = {
+		45D251A81B3B570100754657 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4569E9A01AFFF7A000119718 /* Frameworks */ = {
+		45D251BF1B3B570100754657 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -74,146 +74,152 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4569E9851AFFF7A000119718 = {
+		45D251A21B3B570100754657 = {
 			isa = PBXGroup;
 			children = (
-				4569E9901AFFF7A000119718 /* Przygoda */,
-				4569E9A61AFFF7A000119718 /* PrzygodaTests */,
-				4569E98F1AFFF7A000119718 /* Products */,
+				45D251AD1B3B570100754657 /* Przygoda */,
+				45D251C51B3B570100754657 /* PrzygodaTests */,
+				45D251AC1B3B570100754657 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		4569E98F1AFFF7A000119718 /* Products */ = {
+		45D251AC1B3B570100754657 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4569E98E1AFFF7A000119718 /* Przygoda.app */,
-				4569E9A31AFFF7A000119718 /* PrzygodaTests.xctest */,
+				45D251AB1B3B570100754657 /* Przygoda.app */,
+				45D251C21B3B570100754657 /* PrzygodaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4569E9901AFFF7A000119718 /* Przygoda */ = {
+		45D251AD1B3B570100754657 /* Przygoda */ = {
 			isa = PBXGroup;
 			children = (
-				4569E9931AFFF7A000119718 /* AppDelegate.swift */,
-				4569E9951AFFF7A000119718 /* ViewController.swift */,
-				4569E9971AFFF7A000119718 /* Main.storyboard */,
-				4569E9C51AFFF89C00119718 /* View Controllers */,
-				4569E9C61AFFF8AB00119718 /* Objects */,
-				4569E99A1AFFF7A000119718 /* Images.xcassets */,
-				4569E99C1AFFF7A000119718 /* LaunchScreen.xib */,
-				4569E9911AFFF7A000119718 /* Supporting Files */,
+				45D251B01B3B570100754657 /* AppDelegate.swift */,
+				45D251B61B3B570100754657 /* Main.storyboard */,
+				45D251E81B3B581600754657 /* Miscellanous */,
+				45D251E71B3B57D800754657 /* Classes */,
+				45D251E61B3B57B200754657 /* ViewControllers */,
+				45D251B91B3B570100754657 /* Images.xcassets */,
+				45D251BB1B3B570100754657 /* LaunchScreen.xib */,
+				45D251AE1B3B570100754657 /* Supporting Files */,
 			);
-			name = Przygoda;
-			path = ActiveMeetings;
+			path = Przygoda;
 			sourceTree = "<group>";
 		};
-		4569E9911AFFF7A000119718 /* Supporting Files */ = {
+		45D251AE1B3B570100754657 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4569E9921AFFF7A000119718 /* Info.plist */,
+				45D251AF1B3B570100754657 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4569E9A61AFFF7A000119718 /* PrzygodaTests */ = {
+		45D251C51B3B570100754657 /* PrzygodaTests */ = {
 			isa = PBXGroup;
 			children = (
-				4569E9A91AFFF7A000119718 /* ActiveMeetingsTests.swift */,
-				4569E9A71AFFF7A000119718 /* Supporting Files */,
+				45D251C81B3B570100754657 /* PrzygodaTests.swift */,
+				45D251C61B3B570100754657 /* Supporting Files */,
 			);
-			name = PrzygodaTests;
-			path = ActiveMeetingsTests;
+			path = PrzygodaTests;
 			sourceTree = "<group>";
 		};
-		4569E9A71AFFF7A000119718 /* Supporting Files */ = {
+		45D251C61B3B570100754657 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4569E9A81AFFF7A000119718 /* Info.plist */,
+				45D251C71B3B570100754657 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4569E9C51AFFF89C00119718 /* View Controllers */ = {
+		45D251E61B3B57B200754657 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4569E9B31AFFF83200119718 /* SportPickerViewController.swift */,
-				4569E9B51AFFF84100119718 /* ModePickerViewController.swift */,
-				453C4DE21B3B546500D313AB /* MapViewController.swift */,
-				4569E9C31AFFF89700119718 /* EventDetailViewController.swift */,
+				45D251D41B3B579600754657 /* EventDetailViewController.swift */,
+				45D251D61B3B579600754657 /* MapViewController.swift */,
+				45D251D81B3B579600754657 /* ModePickerViewController.swift */,
+				45D251DA1B3B579600754657 /* SportPickerViewController.swift */,
+				45D251DB1B3B579600754657 /* ViewController.swift */,
 			);
-			name = "View Controllers";
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		4569E9C61AFFF8AB00119718 /* Objects */ = {
+		45D251E71B3B57D800754657 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4569E9B91AFFF85500119718 /* Sport.swift */,
-				4569E9B71AFFF84A00119718 /* Mode.swift */,
-				4569E9BB1AFFF85F00119718 /* MapPin.swift */,
-				4569E9BD1AFFF87500119718 /* Event.swift */,
-				4569E9BF1AFFF87E00119718 /* Const.swift */,
+				45D251D31B3B579600754657 /* Event.swift */,
+				45D251D51B3B579600754657 /* MapPin.swift */,
+				45D251D71B3B579600754657 /* Mode.swift */,
+				45D251D91B3B579600754657 /* Sport.swift */,
 			);
-			name = Objects;
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		45D251E81B3B581600754657 /* Miscellanous */ = {
+			isa = PBXGroup;
+			children = (
+				45D251D21B3B579600754657 /* Const.swift */,
+			);
+			name = Miscellanous;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4569E98D1AFFF7A000119718 /* Przygoda */ = {
+		45D251AA1B3B570100754657 /* Przygoda */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4569E9AD1AFFF7A000119718 /* Build configuration list for PBXNativeTarget "Przygoda" */;
+			buildConfigurationList = 45D251CC1B3B570100754657 /* Build configuration list for PBXNativeTarget "Przygoda" */;
 			buildPhases = (
-				4569E98A1AFFF7A000119718 /* Sources */,
-				4569E98B1AFFF7A000119718 /* Frameworks */,
-				4569E98C1AFFF7A000119718 /* Resources */,
+				45D251A71B3B570100754657 /* Sources */,
+				45D251A81B3B570100754657 /* Frameworks */,
+				45D251A91B3B570100754657 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Przygoda;
-			productName = ActiveMeetings;
-			productReference = 4569E98E1AFFF7A000119718 /* Przygoda.app */;
+			productName = Przygoda;
+			productReference = 45D251AB1B3B570100754657 /* Przygoda.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4569E9A21AFFF7A000119718 /* PrzygodaTests */ = {
+		45D251C11B3B570100754657 /* PrzygodaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4569E9B01AFFF7A000119718 /* Build configuration list for PBXNativeTarget "PrzygodaTests" */;
+			buildConfigurationList = 45D251CF1B3B570100754657 /* Build configuration list for PBXNativeTarget "PrzygodaTests" */;
 			buildPhases = (
-				4569E99F1AFFF7A000119718 /* Sources */,
-				4569E9A01AFFF7A000119718 /* Frameworks */,
-				4569E9A11AFFF7A000119718 /* Resources */,
+				45D251BE1B3B570100754657 /* Sources */,
+				45D251BF1B3B570100754657 /* Frameworks */,
+				45D251C01B3B570100754657 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4569E9A51AFFF7A000119718 /* PBXTargetDependency */,
+				45D251C41B3B570100754657 /* PBXTargetDependency */,
 			);
 			name = PrzygodaTests;
-			productName = ActiveMeetingsTests;
-			productReference = 4569E9A31AFFF7A000119718 /* PrzygodaTests.xctest */;
+			productName = PrzygodaTests;
+			productReference = 45D251C21B3B570100754657 /* PrzygodaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4569E9861AFFF7A000119718 /* Project object */ = {
+		45D251A31B3B570100754657 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = VirrageS;
 				TargetAttributes = {
-					4569E98D1AFFF7A000119718 = {
-						CreatedOnToolsVersion = 6.3.1;
+					45D251AA1B3B570100754657 = {
+						CreatedOnToolsVersion = 6.3.2;
 					};
-					4569E9A21AFFF7A000119718 = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = 4569E98D1AFFF7A000119718;
+					45D251C11B3B570100754657 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 45D251AA1B3B570100754657;
 					};
 				};
 			};
-			buildConfigurationList = 4569E9891AFFF7A000119718 /* Build configuration list for PBXProject "Przygoda" */;
+			buildConfigurationList = 45D251A61B3B570100754657 /* Build configuration list for PBXProject "Przygoda" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -221,29 +227,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 4569E9851AFFF7A000119718;
-			productRefGroup = 4569E98F1AFFF7A000119718 /* Products */;
+			mainGroup = 45D251A21B3B570100754657;
+			productRefGroup = 45D251AC1B3B570100754657 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4569E98D1AFFF7A000119718 /* Przygoda */,
-				4569E9A21AFFF7A000119718 /* PrzygodaTests */,
+				45D251AA1B3B570100754657 /* Przygoda */,
+				45D251C11B3B570100754657 /* PrzygodaTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4569E98C1AFFF7A000119718 /* Resources */ = {
+		45D251A91B3B570100754657 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4569E9991AFFF7A000119718 /* Main.storyboard in Resources */,
-				4569E99E1AFFF7A000119718 /* LaunchScreen.xib in Resources */,
-				4569E99B1AFFF7A000119718 /* Images.xcassets in Resources */,
+				45D251B81B3B570100754657 /* Main.storyboard in Resources */,
+				45D251BD1B3B570100754657 /* LaunchScreen.xib in Resources */,
+				45D251BA1B3B570100754657 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4569E9A11AFFF7A000119718 /* Resources */ = {
+		45D251C01B3B570100754657 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,55 +259,55 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4569E98A1AFFF7A000119718 /* Sources */ = {
+		45D251A71B3B570100754657 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				453C4DE31B3B546600D313AB /* MapViewController.swift in Sources */,
-				4569E9BE1AFFF87500119718 /* Event.swift in Sources */,
-				4569E9961AFFF7A000119718 /* ViewController.swift in Sources */,
-				4569E9B81AFFF84A00119718 /* Mode.swift in Sources */,
-				4569E9BC1AFFF85F00119718 /* MapPin.swift in Sources */,
-				4569E9B41AFFF83200119718 /* SportPickerViewController.swift in Sources */,
-				4569E9941AFFF7A000119718 /* AppDelegate.swift in Sources */,
-				4569E9BA1AFFF85500119718 /* Sport.swift in Sources */,
-				4569E9B61AFFF84100119718 /* ModePickerViewController.swift in Sources */,
-				4569E9C41AFFF89700119718 /* EventDetailViewController.swift in Sources */,
-				4569E9C01AFFF87E00119718 /* Const.swift in Sources */,
+				45D251DE1B3B579600754657 /* EventDetailViewController.swift in Sources */,
+				45D251E31B3B579600754657 /* Sport.swift in Sources */,
+				45D251DF1B3B579600754657 /* MapPin.swift in Sources */,
+				45D251DC1B3B579600754657 /* Const.swift in Sources */,
+				45D251E21B3B579600754657 /* ModePickerViewController.swift in Sources */,
+				45D251E41B3B579600754657 /* SportPickerViewController.swift in Sources */,
+				45D251E51B3B579600754657 /* ViewController.swift in Sources */,
+				45D251B11B3B570100754657 /* AppDelegate.swift in Sources */,
+				45D251DD1B3B579600754657 /* Event.swift in Sources */,
+				45D251E01B3B579600754657 /* MapViewController.swift in Sources */,
+				45D251E11B3B579600754657 /* Mode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4569E99F1AFFF7A000119718 /* Sources */ = {
+		45D251BE1B3B570100754657 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4569E9AA1AFFF7A000119718 /* ActiveMeetingsTests.swift in Sources */,
+				45D251C91B3B570100754657 /* PrzygodaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4569E9A51AFFF7A000119718 /* PBXTargetDependency */ = {
+		45D251C41B3B570100754657 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4569E98D1AFFF7A000119718 /* Przygoda */;
-			targetProxy = 4569E9A41AFFF7A000119718 /* PBXContainerItemProxy */;
+			target = 45D251AA1B3B570100754657 /* Przygoda */;
+			targetProxy = 45D251C31B3B570100754657 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4569E9971AFFF7A000119718 /* Main.storyboard */ = {
+		45D251B61B3B570100754657 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4569E9981AFFF7A000119718 /* Base */,
+				45D251B71B3B570100754657 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		4569E99C1AFFF7A000119718 /* LaunchScreen.xib */ = {
+		45D251BB1B3B570100754657 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4569E99D1AFFF7A000119718 /* Base */,
+				45D251BC1B3B570100754657 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -309,7 +315,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4569E9AB1AFFF7A000119718 /* Debug */ = {
+		45D251CA1B3B570100754657 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -353,7 +359,7 @@
 			};
 			name = Debug;
 		};
-		4569E9AC1AFFF7A000119718 /* Release */ = {
+		45D251CB1B3B570100754657 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -390,27 +396,27 @@
 			};
 			name = Release;
 		};
-		4569E9AE1AFFF7A000119718 /* Debug */ = {
+		45D251CD1B3B570100754657 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = ActiveMeetings/Info.plist;
+				INFOPLIST_FILE = Przygoda/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = Przygoda;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		4569E9AF1AFFF7A000119718 /* Release */ = {
+		45D251CE1B3B570100754657 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = ActiveMeetings/Info.plist;
+				INFOPLIST_FILE = Przygoda/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = Przygoda;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
-		4569E9B11AFFF7A000119718 /* Debug */ = {
+		45D251D01B3B570100754657 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -422,14 +428,14 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = ActiveMeetingsTests/Info.plist;
+				INFOPLIST_FILE = PrzygodaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = PrzygodaTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ActiveMeetings.app/ActiveMeetings";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Przygoda.app/Przygoda";
 			};
 			name = Debug;
 		};
-		4569E9B21AFFF7A000119718 /* Release */ = {
+		45D251D11B3B570100754657 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -437,44 +443,44 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = ActiveMeetingsTests/Info.plist;
+				INFOPLIST_FILE = PrzygodaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = PrzygodaTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ActiveMeetings.app/ActiveMeetings";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Przygoda.app/Przygoda";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4569E9891AFFF7A000119718 /* Build configuration list for PBXProject "Przygoda" */ = {
+		45D251A61B3B570100754657 /* Build configuration list for PBXProject "Przygoda" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4569E9AB1AFFF7A000119718 /* Debug */,
-				4569E9AC1AFFF7A000119718 /* Release */,
+				45D251CA1B3B570100754657 /* Debug */,
+				45D251CB1B3B570100754657 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4569E9AD1AFFF7A000119718 /* Build configuration list for PBXNativeTarget "Przygoda" */ = {
+		45D251CC1B3B570100754657 /* Build configuration list for PBXNativeTarget "Przygoda" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4569E9AE1AFFF7A000119718 /* Debug */,
-				4569E9AF1AFFF7A000119718 /* Release */,
+				45D251CD1B3B570100754657 /* Debug */,
+				45D251CE1B3B570100754657 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4569E9B01AFFF7A000119718 /* Build configuration list for PBXNativeTarget "PrzygodaTests" */ = {
+		45D251CF1B3B570100754657 /* Build configuration list for PBXNativeTarget "PrzygodaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4569E9B11AFFF7A000119718 /* Debug */,
-				4569E9B21AFFF7A000119718 /* Release */,
+				45D251D01B3B570100754657 /* Debug */,
+				45D251D11B3B570100754657 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 4569E9861AFFF7A000119718 /* Project object */;
+	rootObject = 45D251A31B3B570100754657 /* Project object */;
 }
