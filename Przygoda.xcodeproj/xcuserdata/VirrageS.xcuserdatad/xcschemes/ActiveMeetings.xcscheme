@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4569E98D1AFFF7A000119718"
-               BuildableName = "ActiveMeetings.app"
-               BlueprintName = "ActiveMeetings"
-               ReferencedContainer = "container:ActiveMeetings.xcodeproj">
+               BuildableName = "Przygoda.app"
+               BlueprintName = "Przygoda"
+               ReferencedContainer = "container:Przygoda.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4569E9A21AFFF7A000119718"
-               BuildableName = "ActiveMeetingsTests.xctest"
-               BlueprintName = "ActiveMeetingsTests"
-               ReferencedContainer = "container:ActiveMeetings.xcodeproj">
+               BuildableName = "PrzygodaTests.xctest"
+               BlueprintName = "PrzygodaTests"
+               ReferencedContainer = "container:Przygoda.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4569E9A21AFFF7A000119718"
-               BuildableName = "ActiveMeetingsTests.xctest"
-               BlueprintName = "ActiveMeetingsTests"
-               ReferencedContainer = "container:ActiveMeetings.xcodeproj">
+               BuildableName = "PrzygodaTests.xctest"
+               BlueprintName = "PrzygodaTests"
+               ReferencedContainer = "container:Przygoda.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4569E98D1AFFF7A000119718"
-            BuildableName = "ActiveMeetings.app"
-            BlueprintName = "ActiveMeetings"
-            ReferencedContainer = "container:ActiveMeetings.xcodeproj">
+            BuildableName = "Przygoda.app"
+            BlueprintName = "Przygoda"
+            ReferencedContainer = "container:Przygoda.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4569E98D1AFFF7A000119718"
-            BuildableName = "ActiveMeetings.app"
-            BlueprintName = "ActiveMeetings"
-            ReferencedContainer = "container:ActiveMeetings.xcodeproj">
+            BuildableName = "Przygoda.app"
+            BlueprintName = "Przygoda"
+            ReferencedContainer = "container:Przygoda.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4569E98D1AFFF7A000119718"
-            BuildableName = "ActiveMeetings.app"
-            BlueprintName = "ActiveMeetings"
-            ReferencedContainer = "container:ActiveMeetings.xcodeproj">
+            BuildableName = "Przygoda.app"
+            BlueprintName = "Przygoda"
+            ReferencedContainer = "container:Przygoda.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

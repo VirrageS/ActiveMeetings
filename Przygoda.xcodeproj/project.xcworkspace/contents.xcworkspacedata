@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:ActiveMeetings.xcodeproj">
+      location = "self:/Users/VirrageS/Desktop/przygoda-ios/Przygoda.xcodeproj">
    </FileRef>
 </Workspace>
