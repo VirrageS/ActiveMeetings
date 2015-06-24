@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ye5-Bt-2h4">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="gwl-ku-Mtb">
+            <objects>
+                <tableViewController id="ZYf-Av-1gl" customClass="SportPickerViewController" customModule="Przygoda" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="10" sectionFooterHeight="10" id="Ncu-dm-buM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="sportCell" id="eQa-yS-R3y">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eQa-yS-R3y" id="zGU-sd-JhR">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="w4x-H9-ahK" kind="show" identifier="showMode" id="y65-pY-AXZ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ZYf-Av-1gl" id="cQo-nj-ne2"/>
+                            <outlet property="delegate" destination="ZYf-Av-1gl" id="arV-vl-m7U"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="kre-dM-KAX"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H5R-9B-quc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="296" y="359"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zha-GO-2Ew">
+            <objects>
+                <navigationController id="Ye5-Bt-2h4" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jL8-80-XvJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZYf-Av-1gl" kind="relationship" relationship="rootViewController" id="9zB-Kk-PvL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VA5-B7-gpg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-398" y="359"/>
+        </scene>
+        <!--Mode Picker View Controller-->
+        <scene sceneID="v01-KZ-4pd">
+            <objects>
+                <tableViewController id="w4x-H9-ahK" customClass="ModePickerViewController" customModule="Przygoda" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="10" sectionFooterHeight="10" id="1ZZ-xy-ShH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="modeCell" id="dIy-hV-JHr">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dIy-hV-JHr" id="eck-pr-Aee">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="yuK-iT-lLA" kind="show" identifier="showMap" id="FcA-vP-S6N"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="w4x-H9-ahK" id="WqF-U0-CO5"/>
+                            <outlet property="delegate" destination="w4x-H9-ahK" id="UbQ-Ah-wr8"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kRA-xA-K4u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="982" y="359"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="2Np-nk-pbZ">
+            <objects>
+                <viewController id="yuK-iT-lLA" customClass="MapViewController" customModule="Przygoda" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EhB-ih-Vhw"/>
+                        <viewControllerLayoutGuide type="bottom" id="OD1-dL-kBG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cNU-TP-shz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Rbx-Op-oDU">
+                                <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Rbx-Op-oDU" firstAttribute="top" secondItem="EhB-ih-Vhw" secondAttribute="bottom" id="PAi-OD-cP8"/>
+                            <constraint firstAttribute="height" secondItem="Rbx-Op-oDU" secondAttribute="height" id="R5e-s9-QBr"/>
+                            <constraint firstItem="Rbx-Op-oDU" firstAttribute="leading" secondItem="cNU-TP-shz" secondAttribute="leading" id="kmZ-Ky-dRU"/>
+                            <constraint firstAttribute="width" secondItem="Rbx-Op-oDU" secondAttribute="width" id="ue0-8S-bgT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Rbx-Op-oDU" id="iZ2-qn-NR0"/>
+                        <segue destination="qye-s7-I5l" kind="show" identifier="showEventDetail" id="aAt-iZ-4XG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KIn-F2-K0m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1678" y="359"/>
+        </scene>
+        <!--Event Detail View Controller-->
+        <scene sceneID="Vac-2G-DeI">
+            <objects>
+                <viewController id="qye-s7-I5l" customClass="EventDetailViewController" customModule="Przygoda" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dpm-s7-9M7"/>
+                        <viewControllerLayoutGuide type="bottom" id="gUi-Ya-29J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jpt-at-Pfd">
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2e-Ca-yGU">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="zHp-KZ-c72"/>
+                                    <barButtonItem title="Dołącz" id="dLb-Mw-0j4"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="K5g-QR-rDT"/>
+                                    <barButtonItem title="Odłącz się" id="Xf1-y8-WmZ"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="CZe-bR-heS"/>
+                                    <barButtonItem title="Usuń" id="0G5-I7-j8A"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="McI-8j-1al"/>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="10" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="lpu-NL-bze">
+                                <rect key="frame" x="0.0" y="64" width="600" height="420"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="312" id="9nA-nx-2WX"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" id="YO3-7a-Sa2">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YO3-7a-Sa2" id="GxP-FB-WP1">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9nA-nx-2WX"/>
+                                    </mask>
+                                </variation>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lpu-NL-bze" firstAttribute="leading" secondItem="l2e-Ca-yGU" secondAttribute="leading" id="EZb-JT-8Pe"/>
+                            <constraint firstItem="lpu-NL-bze" firstAttribute="top" secondItem="Dpm-s7-9M7" secondAttribute="bottom" id="OzJ-ru-q5g"/>
+                            <constraint firstItem="l2e-Ca-yGU" firstAttribute="leading" secondItem="Jpt-at-Pfd" secondAttribute="leading" id="U4c-GF-45C"/>
+                            <constraint firstItem="l2e-Ca-yGU" firstAttribute="top" secondItem="lpu-NL-bze" secondAttribute="bottom" constant="72" id="Uqk-1a-lRA"/>
+                            <constraint firstItem="lpu-NL-bze" firstAttribute="leading" secondItem="l2e-Ca-yGU" secondAttribute="leading" id="WqL-hU-7CT"/>
+                            <constraint firstItem="lpu-NL-bze" firstAttribute="trailing" secondItem="l2e-Ca-yGU" secondAttribute="trailing" id="Y6E-Fv-eOu"/>
+                            <constraint firstItem="lpu-NL-bze" firstAttribute="top" secondItem="Dpm-s7-9M7" secondAttribute="bottom" constant="-64" id="fmA-Eb-cLL"/>
+                            <constraint firstItem="lpu-NL-bze" firstAttribute="trailing" secondItem="l2e-Ca-yGU" secondAttribute="trailing" id="mMe-b2-4Og"/>
+                            <constraint firstItem="l2e-Ca-yGU" firstAttribute="bottom" secondItem="gUi-Ya-29J" secondAttribute="top" id="pT5-re-Kak"/>
+                            <constraint firstItem="l2e-Ca-yGU" firstAttribute="width" secondItem="Jpt-at-Pfd" secondAttribute="width" id="zeR-bn-emq"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="EZb-JT-8Pe"/>
+                                <exclude reference="Y6E-Fv-eOu"/>
+                                <exclude reference="fmA-Eb-cLL"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="lpu-NL-bze" id="vwA-0e-QiT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SNR-S5-603" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2359" y="359"/>
+        </scene>
+    </scenes>
+</document>
