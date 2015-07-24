@@ -20,7 +20,7 @@
 		45D251E21B3B579600754657 /* ModePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D81B3B579600754657 /* ModePickerViewController.swift */; };
 		45D251E31B3B579600754657 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D91B3B579600754657 /* Sport.swift */; };
 		45D251E41B3B579600754657 /* SportPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251DA1B3B579600754657 /* SportPickerViewController.swift */; };
-		45D251E51B3B579600754657 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251DB1B3B579600754657 /* ViewController.swift */; };
+		45D251E51B3B579600754657 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251DB1B3B579600754657 /* HomeViewController.swift */; };
 		45D251E91B3B5DD200754657 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D61B3B579600754657 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +53,7 @@
 		45D251D81B3B579600754657 /* ModePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModePickerViewController.swift; sourceTree = "<group>"; };
 		45D251D91B3B579600754657 /* Sport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
 		45D251DA1B3B579600754657 /* SportPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportPickerViewController.swift; sourceTree = "<group>"; };
-		45D251DB1B3B579600754657 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		45D251DB1B3B579600754657 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +97,9 @@
 			children = (
 				45D251B01B3B570100754657 /* AppDelegate.swift */,
 				45D251B61B3B570100754657 /* Main.storyboard */,
-				45D251E81B3B581600754657 /* Miscellanous */,
 				45D251E71B3B57D800754657 /* Classes */,
 				45D251E61B3B57B200754657 /* ViewControllers */,
+				45D251E81B3B581600754657 /* Miscellanous */,
 				45D251B91B3B570100754657 /* Images.xcassets */,
 				45D251BB1B3B570100754657 /* LaunchScreen.xib */,
 				45D251AE1B3B570100754657 /* Supporting Files */,
@@ -139,7 +139,7 @@
 				45D251D61B3B579600754657 /* MapViewController.swift */,
 				45D251D81B3B579600754657 /* ModePickerViewController.swift */,
 				45D251DA1B3B579600754657 /* SportPickerViewController.swift */,
-				45D251DB1B3B579600754657 /* ViewController.swift */,
+				45D251DB1B3B579600754657 /* HomeViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -208,7 +208,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0630;
-				ORGANIZATIONNAME = VirrageS;
+				ORGANIZATIONNAME = sportoweprzygody;
 				TargetAttributes = {
 					45D251AA1B3B570100754657 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -270,7 +270,7 @@
 				45D251DC1B3B579600754657 /* Const.swift in Sources */,
 				45D251E21B3B579600754657 /* ModePickerViewController.swift in Sources */,
 				45D251E41B3B579600754657 /* SportPickerViewController.swift in Sources */,
-				45D251E51B3B579600754657 /* ViewController.swift in Sources */,
+				45D251E51B3B579600754657 /* HomeViewController.swift in Sources */,
 				45D251B11B3B570100754657 /* AppDelegate.swift in Sources */,
 				45D251DD1B3B579600754657 /* Event.swift in Sources */,
 				45D251E11B3B579600754657 /* Mode.swift in Sources */,
