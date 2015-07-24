@@ -1,24 +1,31 @@
 //
-//  LoginViewController.swift
+//  RegisterViewController.swift
 //  Przygoda
 //
 //  Created by Janusz Marcinkiewicz on 24.07.2015.
 //  Copyright (c) 2015 sportoweprzygody. All rights reserved.
 //
 
-import Foundation
-
 import UIKit
 
-class LoginViewController: UIViewController {
-    @IBOutlet weak var doneButton: UIBarButtonItem!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-
-    @IBAction func checkLogin(sender: UIBarButtonItem) {
+class RegisterViewController: UIViewController {
+    @IBOutlet var usernameTextField: UITextField!
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    
+    @IBAction func checkRegister(sender: UIBarButtonItem) {
+        let username = usernameTextField.text
         let email = emailTextField.text
         let password = emailTextField.text
         
+        // check username
+        if (username == nil || username == "") {
+            let alert = UIAlertView(title: "Invalid Username", message: "Username field is required", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+            return
+        } else if (username == "tomek") {
+            
+        }
         
         // send request to api
         
@@ -35,7 +42,7 @@ class LoginViewController: UIViewController {
             self.performSegueWithIdentifier("openAdventuresFromLogin", sender: self)
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -45,6 +52,4 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    
 }
