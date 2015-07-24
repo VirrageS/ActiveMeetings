@@ -10,6 +10,10 @@
 		45C4A2C41B625D4000AF2D89 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2C31B625D4000AF2D89 /* LoginViewController.swift */; };
 		45C4A2C61B626F8800AF2D89 /* AdventuresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2C51B626F8800AF2D89 /* AdventuresViewController.swift */; };
 		45C4A2CF1B62896300AF2D89 /* AdventuresCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2CD1B62896300AF2D89 /* AdventuresCollectionCell.swift */; };
+		45C4A2D21B62A6C800AF2D89 /* AdventureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2D11B62A6C800AF2D89 /* AdventureDetailViewController.swift */; };
+		45C4A2D41B62A82F00AF2D89 /* Adventure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2D31B62A82F00AF2D89 /* Adventure.swift */; };
+		45C4A2D81B62ACC500AF2D89 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2D71B62ACC500AF2D89 /* User.swift */; };
+		45C4A2DA1B62C64100AF2D89 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2D91B62C64100AF2D89 /* RegisterViewController.swift */; };
 		45D251B11B3B570100754657 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251B01B3B570100754657 /* AppDelegate.swift */; };
 		45D251B81B3B570100754657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D251B61B3B570100754657 /* Main.storyboard */; };
 		45D251BA1B3B570100754657 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D251B91B3B570100754657 /* Images.xcassets */; };
@@ -31,7 +35,11 @@
 /* Begin PBXFileReference section */
 		45C4A2C31B625D4000AF2D89 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		45C4A2C51B626F8800AF2D89 /* AdventuresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventuresViewController.swift; sourceTree = "<group>"; };
-		45C4A2CD1B62896300AF2D89 /* AdventuresCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdventuresCollectionCell.swift; path = Przygoda/AdventuresCollectionCell.swift; sourceTree = "<group>"; };
+		45C4A2CD1B62896300AF2D89 /* AdventuresCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventuresCollectionCell.swift; sourceTree = "<group>"; };
+		45C4A2D11B62A6C800AF2D89 /* AdventureDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventureDetailViewController.swift; sourceTree = "<group>"; };
+		45C4A2D31B62A82F00AF2D89 /* Adventure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adventure.swift; sourceTree = "<group>"; };
+		45C4A2D71B62ACC500AF2D89 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		45C4A2D91B62C64100AF2D89 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		45D251AB1B3B570100754657 /* Przygoda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Przygoda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D251AF1B3B570100754657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45D251B01B3B570100754657 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,10 +70,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		45D251A21B3B570100754657 = {
+		45C4A2D51B62AC7D00AF2D89 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				45C4A2D71B62ACC500AF2D89 /* User.swift */,
+				45C4A2D31B62A82F00AF2D89 /* Adventure.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		45C4A2D61B62AC8C00AF2D89 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				45C4A2CD1B62896300AF2D89 /* AdventuresCollectionCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		45D251A21B3B570100754657 = {
+			isa = PBXGroup;
+			children = (
 				45D251AD1B3B570100754657 /* Przygoda */,
 				45D251C51B3B570100754657 /* PrzygodaTests */,
 				45D251AC1B3B570100754657 /* Products */,
@@ -87,6 +111,8 @@
 				45D251B01B3B570100754657 /* AppDelegate.swift */,
 				45D251B61B3B570100754657 /* Main.storyboard */,
 				45D251E61B3B57B200754657 /* ViewControllers */,
+				45C4A2D61B62AC8C00AF2D89 /* Cells */,
+				45C4A2D51B62AC7D00AF2D89 /* Classes */,
 				45D251B91B3B570100754657 /* Images.xcassets */,
 				45D251BB1B3B570100754657 /* LaunchScreen.xib */,
 				45D251AE1B3B570100754657 /* Supporting Files */,
@@ -122,8 +148,10 @@
 		45D251E61B3B57B200754657 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				45C4A2D91B62C64100AF2D89 /* RegisterViewController.swift */,
 				45C4A2C31B625D4000AF2D89 /* LoginViewController.swift */,
 				45C4A2C51B626F8800AF2D89 /* AdventuresViewController.swift */,
+				45C4A2D11B62A6C800AF2D89 /* AdventureDetailViewController.swift */,
 				45D251DB1B3B579600754657 /* HomeViewController.swift */,
 			);
 			name = ViewControllers;
@@ -229,8 +257,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45C4A2DA1B62C64100AF2D89 /* RegisterViewController.swift in Sources */,
 				45C4A2C41B625D4000AF2D89 /* LoginViewController.swift in Sources */,
 				45C4A2CF1B62896300AF2D89 /* AdventuresCollectionCell.swift in Sources */,
+				45C4A2D21B62A6C800AF2D89 /* AdventureDetailViewController.swift in Sources */,
+				45C4A2D41B62A82F00AF2D89 /* Adventure.swift in Sources */,
+				45C4A2D81B62ACC500AF2D89 /* User.swift in Sources */,
 				45C4A2C61B626F8800AF2D89 /* AdventuresViewController.swift in Sources */,
 				45D251E51B3B579600754657 /* HomeViewController.swift in Sources */,
 				45D251B11B3B570100754657 /* AppDelegate.swift in Sources */,
