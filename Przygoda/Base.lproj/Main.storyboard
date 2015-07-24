@@ -61,7 +61,7 @@
         <!--Login-->
         <scene sceneID="vBg-nj-eZX">
             <objects>
-                <viewController title="Login" id="Jri-9D-a8b" sceneMemberID="viewController">
+                <viewController title="Login" id="Jri-9D-a8b" customClass="LoginViewController" customModule="Przygoda" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFill" id="N06-nm-AJY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,7 +81,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="35c-F5-3sZ">
                                             <connections>
-                                                <segue destination="rKn-Q4-quf" kind="modal" modalTransitionStyle="crossDissolve" id="Gk7-Cd-ZG6"/>
+                                                <action selector="checkLogin:" destination="Jri-9D-a8b" id="anJ-MV-gd3"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -143,6 +143,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="doneButton" destination="35c-F5-3sZ" id="yu0-mX-gxD"/>
+                        <outlet property="emailTextField" destination="cWR-H9-Uzb" id="gdi-sN-enk"/>
+                        <outlet property="passwordTextField" destination="iS4-cx-VnZ" id="nne-xo-HEx"/>
+                        <segue destination="rKn-Q4-quf" kind="modal" identifier="openAdventuresFromLogin" id="zJw-pU-5Dp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWC-tn-A93" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -151,49 +157,82 @@
         <!--Adventures-->
         <scene sceneID="7U5-lz-1l1">
             <objects>
-                <collectionViewController id="MzX-ws-QRT" userLabel="Adventures" sceneMemberID="viewController">
+                <collectionViewController id="MzX-ws-QRT" userLabel="Adventures" customClass="AdventuresViewController" customModule="Przygoda" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="dp5-7N-0iO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SWb-fb-YKw">
-                            <size key="itemSize" width="203" height="262"/>
+                            <size key="itemSize" width="232" height="216"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qEl-Nc-DRh">
-                                <rect key="frame" x="59" y="64" width="203" height="262"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AdventuresCell" id="xow-20-HRE" customClass="AdventuresCollectionCell" customModule="Przygoda" customModuleProvider="target">
+                                <rect key="frame" x="44" y="64" width="232" height="216"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="203" height="262"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="232" height="216"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kVA-cP-ZFf">
-                                            <rect key="frame" x="27" y="8" width="150" height="150"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wXS-US-gdX">
-                                            <rect key="frame" x="8" y="182" width="41" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YMt-jz-pJ0">
+                                            <rect key="frame" x="78" y="29" width="83" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Joined:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3jm-Tq-bbI">
-                                            <rect key="frame" x="8" y="207" width="57" height="21"/>
+                                        <view contentMode="scaleToFill" id="KcF-QV-2Yo" userLabel="Joined View">
+                                            <rect key="frame" x="8" y="160" width="216" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Joined:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4ku-QE-ZxV">
+                                                    <rect key="frame" x="8" y="8" width="50" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7mu-Sk-LvF" userLabel="joinedLabel">
+                                                    <rect key="frame" x="66" y="8" width="42" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" id="xcd-z8-rfU" userLabel="Date View">
+                                            <rect key="frame" x="8" y="119" width="216" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H9c-uv-GmW">
+                                                    <rect key="frame" x="8" y="8" width="50" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gKi-tZ-jaz" userLabel="dateLabel">
+                                                    <rect key="frame" x="66" y="8" width="40" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <size key="customSize" width="203" height="262"/>
+                                <color key="backgroundColor" red="0.82333002645502651" green="0.82333002645502651" blue="0.82333002645502651" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="t9y-zA-rFi" kind="push" id="aNy-Uu-sjK"/>
+                                    <outlet property="dateLabel" destination="gKi-tZ-jaz" id="Ua1-Ea-PAC"/>
+                                    <outlet property="joinedLabel" destination="7mu-Sk-LvF" id="UQv-XZ-8mz"/>
+                                    <segue destination="t9y-zA-rFi" kind="push" id="H31-Ps-0HP"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

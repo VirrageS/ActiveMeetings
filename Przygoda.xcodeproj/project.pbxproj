@@ -7,21 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45C4A2C41B625D4000AF2D89 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2C31B625D4000AF2D89 /* LoginViewController.swift */; };
+		45C4A2C61B626F8800AF2D89 /* AdventuresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2C51B626F8800AF2D89 /* AdventuresViewController.swift */; };
+		45C4A2CF1B62896300AF2D89 /* AdventuresCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2CD1B62896300AF2D89 /* AdventuresCollectionCell.swift */; };
 		45D251B11B3B570100754657 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251B01B3B570100754657 /* AppDelegate.swift */; };
 		45D251B81B3B570100754657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D251B61B3B570100754657 /* Main.storyboard */; };
 		45D251BA1B3B570100754657 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D251B91B3B570100754657 /* Images.xcassets */; };
 		45D251BD1B3B570100754657 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45D251BB1B3B570100754657 /* LaunchScreen.xib */; };
 		45D251C91B3B570100754657 /* PrzygodaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251C81B3B570100754657 /* PrzygodaTests.swift */; };
-		45D251DC1B3B579600754657 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D21B3B579600754657 /* Const.swift */; };
-		45D251DD1B3B579600754657 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D31B3B579600754657 /* Event.swift */; };
-		45D251DE1B3B579600754657 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D41B3B579600754657 /* EventDetailViewController.swift */; };
-		45D251DF1B3B579600754657 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D51B3B579600754657 /* MapPin.swift */; };
-		45D251E11B3B579600754657 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D71B3B579600754657 /* Mode.swift */; };
-		45D251E21B3B579600754657 /* ModePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D81B3B579600754657 /* ModePickerViewController.swift */; };
-		45D251E31B3B579600754657 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D91B3B579600754657 /* Sport.swift */; };
-		45D251E41B3B579600754657 /* SportPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251DA1B3B579600754657 /* SportPickerViewController.swift */; };
 		45D251E51B3B579600754657 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251DB1B3B579600754657 /* HomeViewController.swift */; };
-		45D251E91B3B5DD200754657 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D251D61B3B579600754657 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		45C4A2C31B625D4000AF2D89 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		45C4A2C51B626F8800AF2D89 /* AdventuresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventuresViewController.swift; sourceTree = "<group>"; };
+		45C4A2CD1B62896300AF2D89 /* AdventuresCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdventuresCollectionCell.swift; path = Przygoda/AdventuresCollectionCell.swift; sourceTree = "<group>"; };
 		45D251AB1B3B570100754657 /* Przygoda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Przygoda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D251AF1B3B570100754657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45D251B01B3B570100754657 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,15 +41,6 @@
 		45D251C21B3B570100754657 /* PrzygodaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrzygodaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D251C71B3B570100754657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45D251C81B3B570100754657 /* PrzygodaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrzygodaTests.swift; sourceTree = "<group>"; };
-		45D251D21B3B579600754657 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
-		45D251D31B3B579600754657 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		45D251D41B3B579600754657 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
-		45D251D51B3B579600754657 /* MapPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
-		45D251D61B3B579600754657 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		45D251D71B3B579600754657 /* Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
-		45D251D81B3B579600754657 /* ModePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModePickerViewController.swift; sourceTree = "<group>"; };
-		45D251D91B3B579600754657 /* Sport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
-		45D251DA1B3B579600754657 /* SportPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportPickerViewController.swift; sourceTree = "<group>"; };
 		45D251DB1B3B579600754657 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +65,7 @@
 		45D251A21B3B570100754657 = {
 			isa = PBXGroup;
 			children = (
+				45C4A2CD1B62896300AF2D89 /* AdventuresCollectionCell.swift */,
 				45D251AD1B3B570100754657 /* Przygoda */,
 				45D251C51B3B570100754657 /* PrzygodaTests */,
 				45D251AC1B3B570100754657 /* Products */,
@@ -97,9 +86,7 @@
 			children = (
 				45D251B01B3B570100754657 /* AppDelegate.swift */,
 				45D251B61B3B570100754657 /* Main.storyboard */,
-				45D251E71B3B57D800754657 /* Classes */,
 				45D251E61B3B57B200754657 /* ViewControllers */,
-				45D251E81B3B581600754657 /* Miscellanous */,
 				45D251B91B3B570100754657 /* Images.xcassets */,
 				45D251BB1B3B570100754657 /* LaunchScreen.xib */,
 				45D251AE1B3B570100754657 /* Supporting Files */,
@@ -135,32 +122,11 @@
 		45D251E61B3B57B200754657 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				45D251D41B3B579600754657 /* EventDetailViewController.swift */,
-				45D251D61B3B579600754657 /* MapViewController.swift */,
-				45D251D81B3B579600754657 /* ModePickerViewController.swift */,
-				45D251DA1B3B579600754657 /* SportPickerViewController.swift */,
+				45C4A2C31B625D4000AF2D89 /* LoginViewController.swift */,
+				45C4A2C51B626F8800AF2D89 /* AdventuresViewController.swift */,
 				45D251DB1B3B579600754657 /* HomeViewController.swift */,
 			);
 			name = ViewControllers;
-			sourceTree = "<group>";
-		};
-		45D251E71B3B57D800754657 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				45D251D31B3B579600754657 /* Event.swift */,
-				45D251D51B3B579600754657 /* MapPin.swift */,
-				45D251D71B3B579600754657 /* Mode.swift */,
-				45D251D91B3B579600754657 /* Sport.swift */,
-			);
-			name = Classes;
-			sourceTree = "<group>";
-		};
-		45D251E81B3B581600754657 /* Miscellanous */ = {
-			isa = PBXGroup;
-			children = (
-				45D251D21B3B579600754657 /* Const.swift */,
-			);
-			name = Miscellanous;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,17 +229,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45D251E91B3B5DD200754657 /* MapViewController.swift in Sources */,
-				45D251DE1B3B579600754657 /* EventDetailViewController.swift in Sources */,
-				45D251E31B3B579600754657 /* Sport.swift in Sources */,
-				45D251DF1B3B579600754657 /* MapPin.swift in Sources */,
-				45D251DC1B3B579600754657 /* Const.swift in Sources */,
-				45D251E21B3B579600754657 /* ModePickerViewController.swift in Sources */,
-				45D251E41B3B579600754657 /* SportPickerViewController.swift in Sources */,
+				45C4A2C41B625D4000AF2D89 /* LoginViewController.swift in Sources */,
+				45C4A2CF1B62896300AF2D89 /* AdventuresCollectionCell.swift in Sources */,
+				45C4A2C61B626F8800AF2D89 /* AdventuresViewController.swift in Sources */,
 				45D251E51B3B579600754657 /* HomeViewController.swift in Sources */,
 				45D251B11B3B570100754657 /* AppDelegate.swift in Sources */,
-				45D251DD1B3B579600754657 /* Event.swift in Sources */,
-				45D251E11B3B579600754657 /* Mode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
