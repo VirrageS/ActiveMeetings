@@ -29,7 +29,7 @@ class AdventuresViewController: UICollectionViewController {
         self.activityIndicator.hidesWhenStopped = true
         
         self.adventures = [
-            Adventure(id: 1, creator_id: 1, creator_name: "1", joined: 1, date: NSDate(), participants: [(id: 2, name: "Tomek")], image_url: "")
+            Adventure(id: 1, creator_id: 1, creator_username: "1", joined: 1, date: NSDate(), participants: [(id: 2, username: "Tomek")], image_url: "")
 //            Adventure(id: 2, creator_id: 2, creator_name: "2", joined: 2, date: NSDate()),
 //            Adventure(id: 3, creator_id: 3, creator_name: "3", joined: 3, date: NSDate()),
 //            Adventure(id: 3, creator_id: 3, creator_name: "3", joined: 3, date: NSDate()),
@@ -70,16 +70,25 @@ class AdventuresViewController: UICollectionViewController {
             
             // load adventures
             dispatch_async(dispatch_get_main_queue()) {
-                for (key, data) in jsonResult {
+                for (_, adventureData) in jsonResult {
+                    // get adventure participants
+                    var participants: [(id: Int64, username: String)] = []
+                    for (_, participantData) in adventureData["participants"] as! NSDictionary {
+                        participants.append((
+                            id: participantData["id"]!!.longLongValue as Int64,
+                            username: participantData["username"] as! String
+                        ))
+                    }
+                    
                     self.adventures?.append(
                         Adventure(
-                            id: data["id"] as! Int64,
-                            creator_id: data["creator_id"] as! Int64,
-                            creator_name: data["creator_name"] as! String,
-                            joined: data["joined"] as! Int64,
-                            date: NSDate(timeIntervalSince1970: NSTimeInterval(data["date"] as! Int)),
-                            participants: [],
-                            image_url: data["static_image_url"] as! String
+                            id: adventureData["id"]!!.longLongValue as Int64,
+                            creator_id: adventureData["creator_id"]!!.longLongValue as Int64,
+                            creator_username: adventureData["creator_name"] as! String,
+                            joined: adventureData["joined"]!!.longLongValue as Int64,
+                            date: NSDate(timeIntervalSince1970: NSTimeInterval(adventureData["date"] as! Int)),
+                            participants: participants,
+                            image_url: adventureData["static_image_url"] as! String
                         )
                     )
                 }
@@ -112,7 +121,7 @@ class AdventuresViewController: UICollectionViewController {
         let adventuresCell = collectionView.dequeueReusableCellWithReuseIdentifier("AdventuresCell", forIndexPath: indexPath) as! AdventuresCollectionCell
         adventuresCell.joinedLabel.text = String(self.adventures![indexPath.row].joined)
         adventuresCell.dateLabel.text = date
-        adventuresCell.updateImage(self.adventures![indexPath.row].image_url)
+        adventuresCell.staticImage.image = self.adventures![indexPath.row].getStaticImage()
         
         return adventuresCell as AdventuresCollectionCell
     }

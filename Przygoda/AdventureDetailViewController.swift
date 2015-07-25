@@ -9,22 +9,32 @@
 import UIKit
 
 class AdventureDetailViewController: UIViewController, UITabBarDelegate {
+    // MARK: tabBar outlets
+    @IBOutlet var bar: UITabBar!
     @IBOutlet var joinItem: UITabBarItem!
     @IBOutlet var editItem: UITabBarItem!
     @IBOutlet var deleteItem: UITabBarItem!
-    @IBOutlet var bar: UITabBar!
- 
-    var adventure: Adventure?
-    var user: User?
     
+ 
+    // MARK: info outlets
+    @IBOutlet var map: UIImageView!
+    
+    // MARK: global vars
+    var adventure: Adventure? // opened adventure
+    var user: User? // current logged user
+    
+    // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // set adventure title
         self.title = "Details " + String(adventure!.id)
-        // Do any additional setup after loading the view.
         
         // get current logged user
         user = currentUser()
+        
+        
+        // MARK: tabBar init
         
         // enable buttons
         self.joinItem.enabled = adventure!.creator_id != user!.id
@@ -40,9 +50,11 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
             }
         }
         self.joinItem.title = hasJoined ? "Leave" : "Join"
-
-        // delegate bar
-        self.bar.delegate = self
+        
+        // MARK: info init
+        
+        // update static map image
+        self.map.image = self.adventure?.getStaticImage()
     }
     
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
