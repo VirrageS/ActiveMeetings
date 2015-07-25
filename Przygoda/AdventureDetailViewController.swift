@@ -10,11 +10,10 @@ import UIKit
 
 class AdventureDetailViewController: UIViewController, UITabBarDelegate {
     // MARK: tabBar outlets
-    @IBOutlet var bar: UITabBar!
     @IBOutlet var joinItem: UITabBarItem!
     @IBOutlet var editItem: UITabBarItem!
     @IBOutlet var deleteItem: UITabBarItem!
-    
+    @IBOutlet var bar: UITabBar!
  
     // MARK: info outlets
     @IBOutlet var map: UIImageView!
@@ -22,6 +21,13 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
     // MARK: global vars
     var adventure: Adventure? // opened adventure
     var user: User? // current logged user
+    
+    lazy var adventureDetailsQueue: NSOperationQueue = {
+        var queue = NSOperationQueue()
+        queue.name = "Adventure details queue"
+        queue.maxConcurrentOperationCount = 1
+        return queue
+        }()
     
     // MARK: - Functions
     override func viewDidLoad() {
@@ -35,10 +41,10 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
         
         
         // MARK: tabBar init
-        
         // enable buttons
         self.joinItem.enabled = adventure!.creator_id != user!.id
-        self.editItem.enabled = adventure!.creator_id == user!.id
+        // TODO: add api edit path
+        self.editItem.enabled = false //adventure!.creator_id == user!.id
         self.deleteItem.enabled = adventure!.creator_id == user!.id
         
         // change title of join/leave item
@@ -51,19 +57,81 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
         }
         self.joinItem.title = hasJoined ? "Leave" : "Join"
         
-        // MARK: info init
+        // delegate bar
+        self.bar.delegate = self
         
+        // MARK: info init
         // update static map image
         self.map.image = self.adventure?.getStaticImage()
     }
     
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
+        var request: NSMutableURLRequest? = nil
+        
         if (item == joinItem) {
-            print("Join button tapped")
+            var url: String = ""
+            if (joinItem.title == "Join") {
+                url = api_url + "/adventure/join" + "?user_id=" + String(user!.id) + "&adventure_id=" + String(adventure!.id)
+            } else if (joinItem.title == "Leave") {
+                url = api_url + "/adventure/leave" + "?user_id=" + String(user!.id) + "&adventure_id=" + String(adventure!.id)
+            }
+            request = NSMutableURLRequest()
+            request!.URL = NSURL(string: url)
+            request!.HTTPMethod = "GET"
         } else if (item == editItem) {
-            print("Edit button tapped")
+            var url: String = api_url + "/adventure/edit" + "?user_id=" + String(user!.id) + "&adventure_id=" + String(adventure!.id)
+            request = NSMutableURLRequest()
+            request!.URL = NSURL(string: url)
+            request!.HTTPMethod = "GET"
         } else if (item == deleteItem) {
-            print("Delete button tapped")
+            var url: String = api_url + "/adventure/delete" + "?user_id=" + String(user!.id) + "&adventure_id=" + String(adventure!.id)
+            request = NSMutableURLRequest()
+            request!.URL = NSURL(string: url)
+            request!.HTTPMethod = "GET"
+        }
+        
+        if (request != nil) {
+            NSURLConnection.sendAsynchronousRequest(request!, queue: self.adventureDetailsQueue, completionHandler: {(
+                response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                
+                var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+                let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+                
+                var checkError = false
+                if (jsonResult == nil) {
+                    print(error)
+                    
+                    // display alert with error
+                    dispatch_async(dispatch_get_main_queue()) {
+                        let alert = UIAlertView(title: "Error occured", message: String(stringInterpolationSegment: error), delegate: nil, cancelButtonTitle: "OK")
+                        alert.show()
+                    }
+                    
+                    return
+                }
+                
+                if (jsonResult["error"] != nil) {
+                    print(jsonResult["error"])
+                    
+                    // display error
+                    dispatch_async(dispatch_get_main_queue()) {
+                        let alert = UIAlertView(title: "Something Went Wrong", message: jsonResult["error"] as? String, delegate: nil, cancelButtonTitle: "OK")
+                        alert.show()
+                    }
+                    
+                    return
+                }
+                
+                // load adventures
+                dispatch_async(dispatch_get_main_queue()) {
+                    let alert = UIAlertView(title: "Success", message: jsonResult["success"] as? String, delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
+                    
+                    // TODO: update adventure data
+                    // TODO: update bar items (enabled/title)
+                    // TODO: update adventures data
+                }
+            })
         }
     }
     

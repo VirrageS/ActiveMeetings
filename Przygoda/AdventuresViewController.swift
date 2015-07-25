@@ -30,16 +30,7 @@ class AdventuresViewController: UICollectionViewController {
         
         self.adventures = [
             Adventure(id: 1, creator_id: 1, creator_username: "1", joined: 1, date: NSDate(), participants: [(id: 2, username: "Tomek")], image_url: "")
-//            Adventure(id: 2, creator_id: 2, creator_name: "2", joined: 2, date: NSDate()),
-//            Adventure(id: 3, creator_id: 3, creator_name: "3", joined: 3, date: NSDate()),
-//            Adventure(id: 3, creator_id: 3, creator_name: "3", joined: 3, date: NSDate()),
-//            Adventure(id: 3, creator_id: 3, creator_name: "3", joined: 3, date: NSDate()),
-//            Adventure(id: 3, creator_id: 3, creator_name: "3", joined: 3, date: NSDate()),
-//            Adventure(id: 3, creator_id: 3, creator_name: "3", joined: 3, date: NSDate())
         ]
-        
-        // TODO: get adventures from api
-        
         
         var url: String = api_url + "/adventure/get/all"
         var request: NSMutableURLRequest = NSMutableURLRequest()
