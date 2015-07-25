@@ -13,34 +13,59 @@ class RegisterViewController: UIViewController {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
+    lazy var registerQueue: NSOperationQueue = {
+        var queue = NSOperationQueue()
+        queue.name = "Register queue"
+        queue.maxConcurrentOperationCount = 1
+        return queue
+    }()
+    
     @IBAction func checkRegister(sender: UIBarButtonItem) {
         let username = usernameTextField.text
         let email = emailTextField.text
-        let password = emailTextField.text
-        
-        // check username
-        if (username == nil || username == "") {
-            let alert = UIAlertView(title: "Invalid Username", message: "Username field is required", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
-            return
-        } else if (username == "tomek") {
-            
-        }
+        let password = passwordTextField.text
+
+        var url: String = api_url + "/user/register?username=" + username + "&email=" + email + "&password=" + password + "&confirm=" + password
+        print(url)
+        var request: NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "GET"
         
         // send request to api
-        
-        if (email == "hello") {
-            // email or password is not correct
-            let alert = UIAlertView(title: "No Account Found", message: "No account found for this email. Have you signed up?", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
-        } else {
-            // user has logged in
-            let user = User(id: 1, username: "Tomek", email: "tomek@tomek.com", password: "adfs")
-            user.login()
+        NSURLConnection.sendAsynchronousRequest(request, queue: self.registerQueue, completionHandler: {(
+            response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             
-            // user has been logged so we can open all adventures controller
-            self.performSegueWithIdentifier("openAdventuresFromLogin", sender: self)
-        }
+            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+            
+            var checkError = false
+            if (jsonResult == nil) {
+                print(error)
+                dispatch_async(dispatch_get_main_queue()) {
+                    let alert = UIAlertView(title: "Error occured", message: String(stringInterpolationSegment: error), delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
+                }
+                
+                return
+            }
+            
+            if (jsonResult["error"] != nil) {
+                print(jsonResult["error"])
+                dispatch_async(dispatch_get_main_queue()) {
+                    let alert = UIAlertView(title: "Something Is Wrong", message: jsonResult["error"] as? String, delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
+                }
+                
+                return
+            }
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                let alert = UIAlertView(title: "Success", message: jsonResult["success"] as? String, delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
+                
+                self.performSegueWithIdentifier("backToHomeScreen", sender: self)
+            }
+        })
     }
     
     override func viewDidLoad() {

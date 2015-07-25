@@ -299,6 +299,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="As4-2o-TlN"/>
+                    <connections>
+                        <outlet property="bar" destination="LW7-Lp-Rfc" id="rK0-c0-hUy"/>
+                        <outlet property="deleteItem" destination="1ei-AH-WSe" id="4tB-2G-Zax"/>
+                        <outlet property="editItem" destination="ydh-eo-yXX" id="sqK-Jl-agb"/>
+                        <outlet property="joinItem" destination="Ht9-63-DDm" id="4A1-6T-jFJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLq-em-Ttg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -367,7 +373,7 @@
                                     <navigationItem title="Register" id="NvN-qC-QMU">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="j9E-aQ-box">
                                             <connections>
-                                                <segue destination="rV1-5i-gRF" kind="modal" modalTransitionStyle="crossDissolve" id="98y-Lf-rQb"/>
+                                                <segue destination="rV1-5i-gRF" kind="modal" identifier="backToHomeScreen" modalTransitionStyle="crossDissolve" id="98y-Lf-rQb"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="g7w-PW-1x5">
@@ -462,6 +468,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="UKR-EE-pgQ"/>
+        <segue reference="98y-Lf-rQb"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,26 +14,74 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    var user: User?
+    
+    
+    lazy var loginQueue: NSOperationQueue = {
+        var queue = NSOperationQueue()
+        queue.name = "Login queue"
+        queue.maxConcurrentOperationCount = 1
+        return queue
+    }()
 
     @IBAction func checkLogin(sender: UIBarButtonItem) {
         let email = emailTextField.text
-        let password = emailTextField.text
+        let password = passwordTextField.text
         
         
-        // send request to api
+        var url: String = api_url + "/user/login?email=" + email + "&password=" + password
+        var request: NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "GET"
         
-        if (email == "hello") {
-            // email or password is not correct
-            let alert = UIAlertView(title: "No Account Found", message: "No account found for this email. Have you signed up?", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
-        } else {
-            // user has logged in
-            let user = User(id: 1, username: "Tomek", email: "tomek@tomek.com", password: "adfs")
-            user.login()
+        NSURLConnection.sendAsynchronousRequest(request, queue: self.loginQueue, completionHandler: {(
+            response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             
-            // user has been logged so we can open all adventures controller
-            self.performSegueWithIdentifier("openAdventuresFromLogin", sender: self)
-        }
+            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+            
+            var checkError = false
+            if (jsonResult == nil) {
+                print(error)
+                
+                // display alert with error
+                dispatch_async(dispatch_get_main_queue()) {
+                    let alert = UIAlertView(title: "Error occured", message: String(stringInterpolationSegment: error), delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
+                }
+
+                return
+            }
+            
+            if (jsonResult["error"] != nil) {
+                print(jsonResult["error"])
+                
+                // display error
+                dispatch_async(dispatch_get_main_queue()) {
+                    let alert = UIAlertView(title: "No Account Found", message: "No account found for this email. Have you signed up?", delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
+                }
+                
+                return
+            }
+
+            // load user
+            let user = jsonResult
+            
+            var id: Int = user["id"]!.longValue as Int
+            var social_id: String = user["social_id"] as! String
+            var username: String = user["username"] as! String
+            var email: String = user["email"] as! String
+            var registered_on: Int64 = user["registered_on"]!.longLongValue as Int64
+            
+            let u = User(id: id, social_id: social_id, username: username, email: email, registered_on: registered_on)
+
+            dispatch_async(dispatch_get_main_queue()) {
+                u.login()
+                self.performSegueWithIdentifier("openAdventuresFromLogin", sender: self)
+            }
+        })
     }
 
     override func viewDidLoad() {
@@ -45,6 +93,4 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    
 }
