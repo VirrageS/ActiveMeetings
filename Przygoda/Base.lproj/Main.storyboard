@@ -169,6 +169,10 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="6UL-4J-hXV">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AdventuresCell" id="xow-20-HRE" customClass="AdventuresCollectionCell" customModule="Przygoda" customModuleProvider="target">
                                 <rect key="frame" x="60" y="64" width="160" height="250"/>
@@ -178,7 +182,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="xn1-3T-zvC">
-                                            <rect key="frame" x="0.0" y="0.0" width="160" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" id="KcF-QV-2Yo" userLabel="Joined View">
@@ -229,6 +233,7 @@
                                 <connections>
                                     <outlet property="dateLabel" destination="gKi-tZ-jaz" id="Ua1-Ea-PAC"/>
                                     <outlet property="joinedLabel" destination="7mu-Sk-LvF" id="UQv-XZ-8mz"/>
+                                    <outlet property="staticImage" destination="xn1-3T-zvC" id="8xt-1t-weT"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -247,6 +252,7 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="6UL-4J-hXV" id="TfK-aB-nLF"/>
                         <segue destination="t9y-zA-rFi" kind="push" identifier="showAdventureDetails" id="Zo7-iy-4ZT"/>
                     </connections>
                 </collectionViewController>

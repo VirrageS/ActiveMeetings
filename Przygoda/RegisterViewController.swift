@@ -26,7 +26,7 @@ class RegisterViewController: UIViewController {
         let password = passwordTextField.text
 
         var url: String = api_url + "/user/register?username=" + username + "&email=" + email + "&password=" + password + "&confirm=" + password
-        print(url)
+
         var request: NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
@@ -40,7 +40,7 @@ class RegisterViewController: UIViewController {
             
             var checkError = false
             if (jsonResult == nil) {
-                print(error)
+                print(data)
                 dispatch_async(dispatch_get_main_queue()) {
                     let alert = UIAlertView(title: "Error occured", message: String(stringInterpolationSegment: error), delegate: nil, cancelButtonTitle: "OK")
                     alert.show()
@@ -63,6 +63,7 @@ class RegisterViewController: UIViewController {
                 let alert = UIAlertView(title: "Success", message: jsonResult["success"] as? String, delegate: nil, cancelButtonTitle: "OK")
                 alert.show()
                 
+                // user created so back to home screen
                 self.performSegueWithIdentifier("backToHomeScreen", sender: self)
             }
         })

@@ -78,6 +78,8 @@ class LoginViewController: UIViewController {
             let u = User(id: id, social_id: social_id, username: username, email: email, registered_on: registered_on)
 
             dispatch_async(dispatch_get_main_queue()) {
+                // TODO: change user login
+                
                 u.login()
                 self.performSegueWithIdentifier("openAdventuresFromLogin", sender: self)
             }

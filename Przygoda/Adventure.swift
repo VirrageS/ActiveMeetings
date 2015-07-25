@@ -14,13 +14,14 @@ class Adventure {
     var creator_name: String
     var joined: Int
     var date: NSDate
+    var image_url: String
     
-    
-    init(id: Int, creator_id: Int, creator_name: String, joined: Int, date: NSDate) {
+    init(id: Int, creator_id: Int, creator_name: String, joined: Int, date: NSDate, image_url: String) {
         self.id = id
         self.creator_id = creator_id
         self.creator_name = creator_name
         self.joined = joined
         self.date = date
+        self.image_url = image_url
     }
 }

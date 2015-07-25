@@ -24,6 +24,7 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
         
         // enable buttons
         self.joinItem.enabled = true
+        self.joinItem.title = adventure!.id == 1 ? "Join" : "Leave"
         self.editItem.enabled = adventure!.id == 1
         self.deleteItem.enabled = adventure!.id == 2
         
@@ -32,11 +33,11 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
     }
     
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
-        if (item.title == "Join") {
+        if (item == joinItem) {
             print("Join button tapped")
-        } else if (item.title == "Edit") {
+        } else if (item == editItem) {
             print("Edit button tapped")
-        } else if (item.title == "Delete") {
+        } else if (item == deleteItem) {
             print("Delete button tapped")
         }
     }
