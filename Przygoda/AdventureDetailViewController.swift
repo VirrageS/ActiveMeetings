@@ -15,6 +15,7 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
     @IBOutlet var bar: UITabBar!
  
     var adventure: Adventure?
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +23,24 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
         self.title = "Details " + String(adventure!.id)
         // Do any additional setup after loading the view.
         
-        // enable buttons
-        self.joinItem.enabled = true
-        self.joinItem.title = adventure!.id == 1 ? "Join" : "Leave"
-        self.editItem.enabled = adventure!.id == 1
-        self.deleteItem.enabled = adventure!.id == 2
+        // get current logged user
+        user = currentUser()
         
+        // enable buttons
+        self.joinItem.enabled = adventure!.creator_id != user!.id
+        self.editItem.enabled = adventure!.creator_id == user!.id
+        self.deleteItem.enabled = adventure!.creator_id == user!.id
+        
+        // change title of join/leave item
+        var hasJoined: Bool = false
+        for participant in adventure!.participants {
+            if (participant.id == user!.id) {
+                hasJoined = true
+                break
+            }
+        }
+        self.joinItem.title = hasJoined ? "Leave" : "Join"
+
         // delegate bar
         self.bar.delegate = self
     }

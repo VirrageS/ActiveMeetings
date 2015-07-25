@@ -9,19 +9,21 @@
 import Foundation
 
 class Adventure {
-    var id: Int
-    var creator_id: Int
+    var id: Int64
+    var creator_id: Int64
     var creator_name: String
-    var joined: Int
+    var joined: Int64
     var date: NSDate
+    var participants: [(id: Int64, name: String)]
     var image_url: String
     
-    init(id: Int, creator_id: Int, creator_name: String, joined: Int, date: NSDate, image_url: String) {
+    init(id: Int64, creator_id: Int64, creator_name: String, joined: Int64, date: NSDate, participants: [(id: Int64, name: String)], image_url: String) {
         self.id = id
         self.creator_id = creator_id
         self.creator_name = creator_name
         self.joined = joined
         self.date = date
+        self.participants = participants
         self.image_url = image_url
     }
 }

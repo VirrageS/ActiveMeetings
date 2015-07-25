@@ -69,7 +69,7 @@ class LoginViewController: UIViewController {
             // load user
             let user = jsonResult
             
-            var id: Int = user["id"]!.longValue as Int
+            var id: Int64 = user["id"]!.longLongValue as Int64
             var social_id: String = user["social_id"] as! String
             var username: String = user["username"] as! String
             var email: String = user["email"] as! String
@@ -79,8 +79,7 @@ class LoginViewController: UIViewController {
 
             dispatch_async(dispatch_get_main_queue()) {
                 // TODO: change user login
-                
-                u.login()
+                loginUser(u)
                 self.performSegueWithIdentifier("openAdventuresFromLogin", sender: self)
             }
         })

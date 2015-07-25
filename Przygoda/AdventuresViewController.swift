@@ -29,7 +29,7 @@ class AdventuresViewController: UICollectionViewController {
         self.activityIndicator.hidesWhenStopped = true
         
         self.adventures = [
-            Adventure(id: 1, creator_id: 1, creator_name: "1", joined: 1, date: NSDate(), image_url: "")
+            Adventure(id: 1, creator_id: 1, creator_name: "1", joined: 1, date: NSDate(), participants: [(id: 2, name: "Tomek")], image_url: "")
 //            Adventure(id: 2, creator_id: 2, creator_name: "2", joined: 2, date: NSDate()),
 //            Adventure(id: 3, creator_id: 3, creator_name: "3", joined: 3, date: NSDate()),
 //            Adventure(id: 3, creator_id: 3, creator_name: "3", joined: 3, date: NSDate()),
@@ -73,11 +73,12 @@ class AdventuresViewController: UICollectionViewController {
                 for (key, data) in jsonResult {
                     self.adventures?.append(
                         Adventure(
-                            id: data["id"] as! Int,
-                            creator_id: data["creator_id"] as! Int,
+                            id: data["id"] as! Int64,
+                            creator_id: data["creator_id"] as! Int64,
                             creator_name: data["creator_name"] as! String,
-                            joined: data["joined"] as! Int,
+                            joined: data["joined"] as! Int64,
                             date: NSDate(timeIntervalSince1970: NSTimeInterval(data["date"] as! Int)),
+                            participants: [],
                             image_url: data["static_image_url"] as! String
                         )
                     )
