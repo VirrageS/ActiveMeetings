@@ -11,13 +11,12 @@ import Foundation
 import UIKit
 
 class LoginViewController: UIViewController {
+    // MARK: - Outlets
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    var user: User?
-    
-    
+
+    // MARK: - Global values
     lazy var loginQueue: NSOperationQueue = {
         var queue = NSOperationQueue()
         queue.name = "Login queue"
@@ -25,10 +24,10 @@ class LoginViewController: UIViewController {
         return queue
     }()
 
+    // MARK: - Button actions
     @IBAction func checkLogin(sender: UIBarButtonItem) {
         let email = emailTextField.text
         let password = passwordTextField.text
-        
         
         var url: String = api_url + "/user/login?email=" + email + "&password=" + password
         var request: NSMutableURLRequest = NSMutableURLRequest()
@@ -54,6 +53,7 @@ class LoginViewController: UIViewController {
                 return
             }
             
+            // handle jsonResult "error"
             if (jsonResult["error"] != nil) {
                 print(jsonResult["error"])
                 
@@ -67,24 +67,27 @@ class LoginViewController: UIViewController {
             }
 
             // load user
-            let user = jsonResult
+            let userData = jsonResult
             
-            var id: Int64 = user["id"]!.longLongValue as Int64
-            var social_id: String = user["social_id"] as! String
-            var username: String = user["username"] as! String
-            var email: String = user["email"] as! String
-            var registered_on: Int64 = user["registered_on"]!.longLongValue as Int64
+            var id: Int64 = userData["id"]!.longLongValue as Int64
+            var social_id: String = userData["social_id"] as! String
+            var username: String = userData["username"] as! String
+            var email: String = userData["email"] as! String
+            var registered_on: Int64 = userData["registered_on"]!.longLongValue as Int64
             
-            let u = User(id: id, social_id: social_id, username: username, email: email, registered_on: registered_on)
+            let user = User(id: id, social_id: social_id, username: username, email: email, registered_on: registered_on)
 
             dispatch_async(dispatch_get_main_queue()) {
-                // TODO: change user login
-                loginUser(u)
+                // login user
+                loginUser(user)
+                
+                // send user to all adventures controller
                 self.performSegueWithIdentifier("openAdventuresFromLogin", sender: self)
             }
         })
     }
 
+    // MARK: - Main functions
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

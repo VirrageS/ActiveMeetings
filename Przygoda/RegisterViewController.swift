@@ -9,10 +9,12 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
+    // MARK: - Outlets
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
+    // MARK: - Global vars
     lazy var registerQueue: NSOperationQueue = {
         var queue = NSOperationQueue()
         queue.name = "Register queue"
@@ -20,6 +22,7 @@ class RegisterViewController: UIViewController {
         return queue
     }()
     
+    // MARK: - Button actions
     @IBAction func checkRegister(sender: UIBarButtonItem) {
         let username = usernameTextField.text
         let email = emailTextField.text
@@ -49,6 +52,7 @@ class RegisterViewController: UIViewController {
                 return
             }
             
+            // handle jsonResult "error" - api returned error
             if (jsonResult["error"] != nil) {
                 print(jsonResult["error"])
                 dispatch_async(dispatch_get_main_queue()) {
@@ -60,6 +64,7 @@ class RegisterViewController: UIViewController {
             }
             
             dispatch_async(dispatch_get_main_queue()) {
+                // show succes alert
                 let alert = UIAlertView(title: "Success", message: jsonResult["success"] as? String, delegate: nil, cancelButtonTitle: "OK")
                 alert.show()
                 

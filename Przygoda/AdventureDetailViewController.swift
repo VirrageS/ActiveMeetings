@@ -9,16 +9,16 @@
 import UIKit
 
 class AdventureDetailViewController: UIViewController, UITabBarDelegate {
-    // MARK: tabBar outlets
+    // MARK: - Tab bar outlets
     @IBOutlet var joinItem: UITabBarItem!
     @IBOutlet var editItem: UITabBarItem!
     @IBOutlet var deleteItem: UITabBarItem!
     @IBOutlet var bar: UITabBar!
  
-    // MARK: info outlets
+    // MARK: - Detail info outlets
     @IBOutlet var map: UIImageView!
     
-    // MARK: global vars
+    // MARK: - Global vars
     var adventure: Adventure? // opened adventure
     var user: User? // current logged user
     
@@ -29,7 +29,7 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
         return queue
         }()
     
-    // MARK: - Functions
+    // MARK: - Main functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,38 +48,6 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
         
         // MARK: info init
         self.updateAdventureDetailInfo()
-    }
-    
-    /// Updates bar item info
-    /// Changes enabled to true or false and title to "Leave" or "Join" in joinItem
-    func updateBarItems() {
-        // enable buttons
-        self.joinItem.enabled = adventure!.creator_id != user!.id
-        // TODO: add in api 'adventure_edit' path
-        self.editItem.enabled = false //adventure!.creator_id == user!.id
-        self.deleteItem.enabled = adventure!.creator_id == user!.id
-        
-        // change title of join/leave item
-        var hasJoined: Bool = false
-        for participant in adventure!.participants {
-            if (participant.id == user!.id) {
-                hasJoined = true
-                break
-            }
-        }
-        self.joinItem.title = hasJoined ? "Leave" : "Join"
-    }
-    
-    /// Updates adventure detail info
-    func updateAdventureDetailInfo() {
-        // TODO: write this func
-        // updates adventure info (date/joined/participants)
-        
-        // update joined info text 
-//        self.joinedLabel.text = self.adventure!.joined
-        
-        // update static map image
-        self.map.image = self.adventure?.getStaticImage()
     }
     
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
@@ -182,6 +150,43 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Custom functions
+    /**
+    Updates bar item info.
+    Changes enabled to true or false and title to "Leave" or "Join" in joinItem
+    */
+    func updateBarItems() {
+        // enable buttons
+        self.joinItem.enabled = adventure!.creator_id != user!.id
+        // TODO: add in api 'adventure_edit' path
+        self.editItem.enabled = false //adventure!.creator_id == user!.id
+        self.deleteItem.enabled = adventure!.creator_id == user!.id
+        
+        // change title of join/leave item
+        var hasJoined: Bool = false
+        for participant in adventure!.participants {
+            if (participant.id == user!.id) {
+                hasJoined = true
+                break
+            }
+        }
+        self.joinItem.title = hasJoined ? "Leave" : "Join"
+    }
+    
+    /**
+    Updates adventure detail info.
+    */
+    func updateAdventureDetailInfo() {
+        // TODO: write this func
+        // updates adventure info (date/joined/participants)
+        
+        // update joined info text
+        //        self.joinedLabel.text = self.adventure!.joined
+        
+        // update static map image
+        self.map.image = self.adventure?.getStaticImage()
     }
     
     /*

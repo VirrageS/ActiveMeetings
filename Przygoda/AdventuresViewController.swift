@@ -10,10 +10,14 @@ import Foundation
 import UIKit
 
 class AdventuresViewController: UICollectionViewController {
+    // MARK: Outlets
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
    
+    // MARK: Global vars
+    // all adventures
     var adventures: [Adventure]?
     
+    // connection queue
     lazy var allAdventuresQueue: NSOperationQueue = {
         var queue = NSOperationQueue()
         queue.name = "All adventures queue"
@@ -21,6 +25,7 @@ class AdventuresViewController: UICollectionViewController {
         return queue
     }()
     
+    // MARK: - Main functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Adventures"
@@ -31,16 +36,62 @@ class AdventuresViewController: UICollectionViewController {
         self.adventures = [
             Adventure(id: 1, creator_id: 1, creator_username: "1", joined: 1, date: NSDate(), participants: [(id: 2, username: "Tomek")], image_url: "")
         ]
-        
+
+        // update all adventures
         updateAdventures()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+
         
 //        updateAdventures()
     }
+
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.adventures!.count
+    }
     
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        var date: String {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            return dateFormatter.stringFromDate(self.adventures![indexPath.row].date)
+        }
+        
+        
+        let adventuresCell = collectionView.dequeueReusableCellWithReuseIdentifier("AdventuresCell", forIndexPath: indexPath) as! AdventuresCollectionCell
+        adventuresCell.joinedLabel.text = String(self.adventures![indexPath.row].joined)
+        adventuresCell.dateLabel.text = date
+        adventuresCell.staticImage.image = self.adventures![indexPath.row].getStaticImage()
+        
+        return adventuresCell as AdventuresCollectionCell
+    }
+    
+    // MARK: - Navigation segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.destinationViewController is AdventureDetailViewController) {
+            let adventureDetailController: AdventureDetailViewController = segue.destinationViewController as! AdventureDetailViewController
+            
+            let row: Int = sender as! Int
+            adventureDetailController.adventure = self.adventures![row]
+        }
+        
+    }
+
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("showAdventureDetails", sender: indexPath.row)
+    }
+    
+    // MARK: - Custom functions
+    /**
+        Updates all adventures
+        Gets data from api and update them to view controller
+    */
     func updateAdventures() {
         var url: String = api_url + "/adventure/get/all"
         var request: NSMutableURLRequest = NSMutableURLRequest()
@@ -101,43 +152,5 @@ class AdventuresViewController: UICollectionViewController {
                 self.activityIndicator.stopAnimating()
             }
         })
-    }
-
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.adventures!.count
-    }
-    
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var date: String {
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy"
-            return dateFormatter.stringFromDate(self.adventures![indexPath.row].date)
-        }
-        
-        
-        let adventuresCell = collectionView.dequeueReusableCellWithReuseIdentifier("AdventuresCell", forIndexPath: indexPath) as! AdventuresCollectionCell
-        adventuresCell.joinedLabel.text = String(self.adventures![indexPath.row].joined)
-        adventuresCell.dateLabel.text = date
-        adventuresCell.staticImage.image = self.adventures![indexPath.row].getStaticImage()
-        
-        return adventuresCell as AdventuresCollectionCell
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.destinationViewController is AdventureDetailViewController) {
-            let adventureDetailController: AdventureDetailViewController = segue.destinationViewController as! AdventureDetailViewController
-            
-            let row: Int = sender as! Int
-            adventureDetailController.adventure = self.adventures![row]
-        }
-        
-    }
-    
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("showAdventureDetails", sender: indexPath.row)
     }
 }

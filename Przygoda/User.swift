@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+    Describes logged user
+*/
 class User: NSObject {
     /// ID of user
     var id: Int64
@@ -28,6 +31,7 @@ class User: NSObject {
         self.registered_on = registered_on
     }
     
+    /// Encode user
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeInt64(self.id, forKey: "id")
         aCoder.encodeObject(self.social_id, forKey: "social_id")
@@ -36,6 +40,7 @@ class User: NSObject {
         aCoder.encodeInt64(self.registered_on, forKey: "registered_on")
     }
     
+    /// Decode encoded user
     required init(coder aDecoder: NSCoder) {
         self.id = aDecoder.decodeInt64ForKey("id") as Int64
         self.social_id = aDecoder.decodeObjectForKey("social_id") as! String
@@ -45,10 +50,12 @@ class User: NSObject {
     }
 }
 
-/// Login user to system
-/// Saves user in system for key "current_user"
-///
-/// :param: user User which will be logged to system
+/**
+    Login user to system.
+    Saves user in system for key "current_user".
+
+    :param: user User which will be logged to system
+*/
 func loginUser(user: User) {
     var encodedObject: NSData = NSKeyedArchiver.archivedDataWithRootObject(user)
     var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -56,10 +63,12 @@ func loginUser(user: User) {
     defaults.synchronize()
 }
 
-/// Allows to get current logged user in the system
-/// Get user for key "current_user"
-///
-/// :returns: user if has been logged before, nil otherwise
+/**
+    Returns current logged user.
+    Reads user from system for key "current_user".
+
+    :returns: User if has been logged, nil otherwise
+*/
 func currentUser() -> User? {
     var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     var encodedObject: NSData = defaults.objectForKey("current_user") as! NSData

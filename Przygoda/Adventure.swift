@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+/**
+    Describes abstract model of adventure
+*/
 class Adventure: NSObject {
     /// ID of the adventure
     var id: Int64
@@ -19,15 +22,25 @@ class Adventure: NSObject {
     /// Number of participants who joined the adventure
     var joined: Int64
     /// Date when the adventure ends
-    var date: NSDate
+    var date: Int64
     /// Array of adventure participants
     var participants: [(id: Int64, username: String)]
     /// Static image url of adventure
     var image_url: String
     
-    // TODO: add mode var
-    
-    init(id: Int64, creator_id: Int64, creator_username: String, joined: Int64, date: NSDate, participants: [(id: Int64, username: String)], image_url: String) {
+    // TODO: add "mode", "mode_name" var
+    /**
+        Init adventure.
+
+        :param: id ID of the adventure
+        :param: creator_id Creator ID of the adventure
+        :param: creator_username Creator username
+        :param: joined Number of joined participants
+        :param: date Date when adventure ends
+        :param: participants Participants of the adventure
+        :param: image_url Image url of adventure
+    */
+    init(id: Int64, creator_id: Int64, creator_username: String, joined: Int64, date: Int64, participants: [(id: Int64, username: String)], image_url: String) {
         self.id = id
         self.creator_id = creator_id
         self.creator_username = creator_username
@@ -37,9 +50,11 @@ class Adventure: NSObject {
         self.image_url = image_url
     }
     
-    /// Get adventure static image from adventure image url
-    ///
-    /// :returns: nil if cannot get image, image otherwise
+    /**
+        Returns adventure static image from adventure image url
+
+        :returns: nil if cannot get image, image otherwise
+    */
     func getStaticImage() -> UIImage? {
         var escapedURL = image_url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         
@@ -52,10 +67,12 @@ class Adventure: NSObject {
         return nil
     }
     
-    /// TODO: finish function
-    /// Get info from api and updates if necessarry
-    ///
-    /// :returns: false if adventure does not exists, true otherwise
+    // TODO: finish function
+    /** 
+        Updates info from api and return result
+
+        :returns: false if adventure does not exists, true otherwise
+    */
     func update() -> Bool {
         
         return true
