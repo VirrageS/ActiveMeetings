@@ -20,9 +20,9 @@ class Adventure: NSObject {
     /// Creator of adventure username
     var creator_username: String
     /// Number of participants who joined the adventure
-    var joined: Int64
+    var joined: Int
     /// Date when the adventure ends
-    var date: Int64
+    var date: Int
     /// Array of adventure participants
     var participants: [(id: Int64, username: String)]
     /// Static image url of adventure
@@ -40,7 +40,7 @@ class Adventure: NSObject {
         :param: participants Participants of the adventure
         :param: image_url Image url of adventure
     */
-    init(id: Int64, creator_id: Int64, creator_username: String, joined: Int64, date: Int64, participants: [(id: Int64, username: String)], image_url: String) {
+    init(id: Int64, creator_id: Int64, creator_username: String, joined: Int, date: Int, participants: [(id: Int64, username: String)], image_url: String) {
         self.id = id
         self.creator_id = creator_id
         self.creator_username = creator_username

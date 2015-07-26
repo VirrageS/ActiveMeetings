@@ -21,9 +21,9 @@ class User: NSObject {
     /// User's email
     var email: String
     /// Date when user has been registered
-    var registered_on: Int64
+    var registered_on: Int
     
-    init(id: Int64, social_id: String, username: String, email: String, registered_on: Int64) {
+    init(id: Int64, social_id: String, username: String, email: String, registered_on: Int) {
         self.id = id
         self.social_id = social_id
         self.username = username
@@ -37,7 +37,7 @@ class User: NSObject {
         aCoder.encodeObject(self.social_id, forKey: "social_id")
         aCoder.encodeObject(self.username, forKey: "username")
         aCoder.encodeObject(self.email, forKey: "email")
-        aCoder.encodeInt64(self.registered_on, forKey: "registered_on")
+        aCoder.encodeInteger(self.registered_on, forKey: "registered_on")
     }
     
     /// Decode encoded user
@@ -46,7 +46,7 @@ class User: NSObject {
         self.social_id = aDecoder.decodeObjectForKey("social_id") as! String
         self.username = aDecoder.decodeObjectForKey("username") as! String
         self.email = aDecoder.decodeObjectForKey("email") as! String
-        self.registered_on = aDecoder.decodeInt64ForKey("registered_on") as Int64
+        self.registered_on = aDecoder.decodeIntegerForKey("registered_on") as Int
     }
 }
 

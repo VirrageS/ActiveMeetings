@@ -34,7 +34,7 @@ class AdventuresViewController: UICollectionViewController {
         self.activityIndicator.hidesWhenStopped = true
         
         self.adventures = [
-            Adventure(id: 1, creator_id: 1, creator_username: "1", joined: 1, date: NSDate(), participants: [(id: 2, username: "Tomek")], image_url: "")
+            Adventure(id: 1, creator_id: 1, creator_username: "1", joined: 1, date: Int(NSDate().timeIntervalSince1970), participants: [(id: 2, username: "Tomek")], image_url: "")
         ]
 
         // update all adventures
@@ -59,8 +59,9 @@ class AdventuresViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var date: String {
             let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy"
-            return dateFormatter.stringFromDate(self.adventures![indexPath.row].date)
+            dateFormatter.dateFormat = "dd.MM.yyyy HH:MM"
+            let date: NSDate = NSDate(timeIntervalSince1970: NSTimeInterval(self.adventures![indexPath.row].date))
+            return dateFormatter.stringFromDate(date)
         }
         
         
@@ -137,8 +138,8 @@ class AdventuresViewController: UICollectionViewController {
                             id: adventureData["id"]!!.longLongValue as Int64,
                             creator_id: adventureData["creator_id"]!!.longLongValue as Int64,
                             creator_username: adventureData["creator_username"] as! String,
-                            joined: adventureData["joined"]!!.longLongValue as Int64,
-                            date: NSDate(timeIntervalSince1970: NSTimeInterval(adventureData["date"] as! Int)),
+                            joined: adventureData["joined"]!!.longValue as Int,
+                            date: adventureData["date"]!!.longValue as Int,
                             participants: participants,
                             image_url: adventureData["static_image_url"] as! String
                         )

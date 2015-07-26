@@ -46,7 +46,7 @@ class LoginViewController: UIViewController {
                 
                 // display alert with error
                 dispatch_async(dispatch_get_main_queue()) {
-                    let alert = UIAlertView(title: "Error occured", message: String(stringInterpolationSegment: error), delegate: nil, cancelButtonTitle: "OK")
+                    let alert = UIAlertView(title: "Error occured", message: String("Internal error. Please try again."), delegate: nil, cancelButtonTitle: "OK")
                     alert.show()
                 }
 
@@ -73,7 +73,7 @@ class LoginViewController: UIViewController {
             var social_id: String = userData["social_id"] as! String
             var username: String = userData["username"] as! String
             var email: String = userData["email"] as! String
-            var registered_on: Int64 = userData["registered_on"]!.longLongValue as Int64
+            var registered_on: Int = userData["registered_on"]!.longValue as Int
             
             let user = User(id: id, social_id: social_id, username: username, email: email, registered_on: registered_on)
 
