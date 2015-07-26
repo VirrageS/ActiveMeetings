@@ -9,10 +9,15 @@
 import Foundation
 
 class User: NSObject {
+    /// ID of user
     var id: Int64
+    /// Facebooks social id
     var social_id: String
+    /// Full name of the user
     var username: String
+    /// User's email
     var email: String
+    /// Date when user has been registered
     var registered_on: Int64
     
     init(id: Int64, social_id: String, username: String, email: String, registered_on: Int64) {
@@ -21,9 +26,6 @@ class User: NSObject {
         self.username = username
         self.email = email
         self.registered_on = registered_on
-    }
-    
-    func login() {
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
@@ -43,6 +45,10 @@ class User: NSObject {
     }
 }
 
+/// Login user to system
+/// Saves user in system for key "current_user"
+///
+/// :param: user User which will be logged to system
 func loginUser(user: User) {
     var encodedObject: NSData = NSKeyedArchiver.archivedDataWithRootObject(user)
     var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -50,6 +56,10 @@ func loginUser(user: User) {
     defaults.synchronize()
 }
 
+/// Allows to get current logged user in the system
+/// Get user for key "current_user"
+///
+/// :returns: user if has been logged before, nil otherwise
 func currentUser() -> User? {
     var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     var encodedObject: NSData = defaults.objectForKey("current_user") as! NSData

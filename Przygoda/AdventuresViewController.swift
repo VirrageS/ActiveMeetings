@@ -32,6 +32,16 @@ class AdventuresViewController: UICollectionViewController {
             Adventure(id: 1, creator_id: 1, creator_username: "1", joined: 1, date: NSDate(), participants: [(id: 2, username: "Tomek")], image_url: "")
         ]
         
+        updateAdventures()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+//        updateAdventures()
+    }
+    
+    func updateAdventures() {
         var url: String = api_url + "/adventure/get/all"
         var request: NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
@@ -75,7 +85,7 @@ class AdventuresViewController: UICollectionViewController {
                         Adventure(
                             id: adventureData["id"]!!.longLongValue as Int64,
                             creator_id: adventureData["creator_id"]!!.longLongValue as Int64,
-                            creator_username: adventureData["creator_name"] as! String,
+                            creator_username: adventureData["creator_username"] as! String,
                             joined: adventureData["joined"]!!.longLongValue as Int64,
                             date: NSDate(timeIntervalSince1970: NSTimeInterval(adventureData["date"] as! Int)),
                             participants: participants,

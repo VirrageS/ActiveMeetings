@@ -41,9 +41,21 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
         
         
         // MARK: tabBar init
+        self.updateBarItems()
+        
+        // delegate bar
+        self.bar.delegate = self
+        
+        // MARK: info init
+        self.updateAdventureDetailInfo()
+    }
+    
+    /// Updates bar item info
+    /// Changes enabled to true or false and title to "Leave" or "Join" in joinItem
+    func updateBarItems() {
         // enable buttons
         self.joinItem.enabled = adventure!.creator_id != user!.id
-        // TODO: add api edit path
+        // TODO: add in api 'adventure_edit' path
         self.editItem.enabled = false //adventure!.creator_id == user!.id
         self.deleteItem.enabled = adventure!.creator_id == user!.id
         
@@ -56,11 +68,16 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
             }
         }
         self.joinItem.title = hasJoined ? "Leave" : "Join"
+    }
+    
+    /// Updates adventure detail info
+    func updateAdventureDetailInfo() {
+        // TODO: write this func
+        // updates adventure info (date/joined/participants)
         
-        // delegate bar
-        self.bar.delegate = self
+        // update joined info text 
+//        self.joinedLabel.text = self.adventure!.joined
         
-        // MARK: info init
         // update static map image
         self.map.image = self.adventure?.getStaticImage()
     }
@@ -126,10 +143,37 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
                 dispatch_async(dispatch_get_main_queue()) {
                     let alert = UIAlertView(title: "Success", message: jsonResult["success"] as? String, delegate: nil, cancelButtonTitle: "OK")
                     alert.show()
-                    
-                    // TODO: update adventure data
-                    // TODO: update bar items (enabled/title)
+
                     // TODO: update adventures data
+                    
+                    // TODO: move this to adventure update function
+                    
+                    if (item == self.joinItem) {
+                        if (self.joinItem.title == "Join") {
+                            self.adventure!.participants.append((
+                                id: self.user!.id as Int64,
+                                username: self.user!.username as String
+                            ))
+                            self.adventure!.joined += 1
+                        } else if (self.joinItem.title == "Leave") {
+                            self.adventure!.participants = self.adventure!.participants.filter({
+                                e in return e.id != self.user!.id
+                            })
+                            self.adventure!.joined -= 1
+                        }
+                    }
+                    
+                    // update adventure
+                    let result: Bool = self.adventure!.update()
+                    if (!result) {
+                        // probably adventure does not exists
+                    }
+                    
+                    // update (enabled and title)
+                    self.updateBarItems()
+                    
+                    // update info (joined and participants)
+                    self.updateAdventureDetailInfo()
                 }
             })
         }
