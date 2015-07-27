@@ -18,7 +18,6 @@ class AdventuresViewController: UICollectionViewController {
     var adventures: [Adventure]?
     // refresher
     var refreshControl: UIRefreshControl!
-    
     // connection queue
     lazy var allAdventuresQueue: NSOperationQueue = {
         var queue = NSOperationQueue()
@@ -31,9 +30,6 @@ class AdventuresViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Adventures"
-        
-        // activity indicator have to hide when stopped
-        // self.activityIndicator.hidesWhenStopped = true
         
         self.adventures = [
             Adventure(
@@ -48,6 +44,7 @@ class AdventuresViewController: UICollectionViewController {
             )
         ]
         
+        // setting refresh control
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
@@ -59,9 +56,9 @@ class AdventuresViewController: UICollectionViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-
         
-//        updateAdventures()
+        // reload data (to refresh changed adventures)
+        self.collectionView?.reloadData()
     }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

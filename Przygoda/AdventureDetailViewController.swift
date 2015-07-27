@@ -8,9 +8,10 @@
 
 import UIKit
 
-class AdventureDetailViewController: UIViewController, UITabBarDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+class AdventureDetailViewController: UIViewController, UITabBarDelegate, UIScrollViewDelegate {
+    // MARK: - View outlets
     @IBOutlet var scrollView: UIScrollView!
-    
+    @IBOutlet var containerView: UIView!
     
     // MARK: - Tab bar outlets
     @IBOutlet var joinItem: UITabBarItem!
@@ -18,26 +19,17 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UITable
     @IBOutlet var deleteItem: UITabBarItem!
     @IBOutlet var bar: UITabBar!
  
-    // MARK: - Detail info outlets
-    @IBOutlet var map: UIImageView!
-    @IBOutlet var infoLabel: UILabel!
-    @IBOutlet var creatorUsernameLabel: UILabel!
-    @IBOutlet var dateLabel: UILabel!
-    @IBOutlet var joinedLabel: UILabel!
-    
-    @IBOutlet var participantsTableView: UITableView!
-    
     // MARK: - Global vars
     var adventure: Adventure? // opened adventure
     var user: User? // current logged user
-    
+    var containerViewController: AdventureDetailContainerViewController?
+    // queue
     lazy var adventureDetailsQueue: NSOperationQueue = {
         var queue = NSOperationQueue()
         queue.name = "Adventure details queue"
         queue.maxConcurrentOperationCount = 1
         return queue
     }()
-    
     // refresher
     var refreshControl: UIRefreshControl!
     
@@ -48,27 +40,18 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UITable
         // Update info
         self.title = "Details " + String(adventure!.id) // set adventure title
         self.user = currentUser() // get current logged user
-        self.updateAdventureDetailInfo() // update detail info
-
-        // delegate scrollView
-        self.scrollView.delegate = self
-        // delegate tableView
-        self.participantsTableView.delegate = self
-        self.participantsTableView.dataSource = self
+        self.updateAll() // updates everything
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: "refreshInfo:", forControlEvents: UIControlEvents.ValueChanged)
         self.scrollView.addSubview(refreshControl)
         
+        // delegate scrollView
+        self.scrollView.delegate = self
+        
         // delegate bar
         self.bar.delegate = self
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        updateContentSize()
     }
     
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
@@ -137,9 +120,8 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UITable
                     let alert = UIAlertView(title: "Success", message: jsonResult["success"] as? String, delegate: nil, cancelButtonTitle: "OK")
                     alert.show()
 
-                    // TODO: update adventures data
-                    
                     // TODO: move this to adventure update function
+                    // TODO: updates info from API
                     
                     if (item == self.joinItem) {
                         if (self.joinItem.title == "Join") {
@@ -156,41 +138,11 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UITable
                         }
                     }
                     
-                    // update adventure
-                    let result: Bool = self.adventure!.update()
-                    if (!result) {
-                        // probably adventure does not exists
-                        // FIXME: write this statement
-                    }
-                    
-                    // update info (joined and participants)
-                    self.updateAdventureDetailInfo()
+                    // updates everything
+                    self.updateAll()
                 }
             })
         }
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.adventure!.participants.count
-    }
-    
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
-    }
-    
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Participants"
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let participantCell = tableView.dequeueReusableCellWithIdentifier("ParticipantCell", forIndexPath: indexPath) as! AdventureDetailTableViewCell
-        participantCell.participantUsernameLabel.text = self.adventure!.participants[indexPath.row].username
-        return participantCell
     }
     
     override func didReceiveMemoryWarning() {
@@ -198,16 +150,28 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UITable
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Navigation segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.destinationViewController is AdventureDetailContainerViewController) {
+            let adventureDetailContainerController: AdventureDetailContainerViewController = segue.destinationViewController as! AdventureDetailContainerViewController
+            
+            adventureDetailContainerController.adventure = self.adventure
+            self.containerViewController = adventureDetailContainerController
+        }
+    }
+    
     // MARK: - Custom functions
+    
+    /**
+        Updates size of scroll view.
+        Adjust it to the content view.
+    */
     func updateContentSize() {
         dispatch_async(dispatch_get_main_queue()) {
-            self.participantsTableView.frame.size.height = self.participantsTableView.contentSize.height
             self.scrollView.contentSize = CGSizeMake(
                 self.view.frame.width,
-                self.participantsTableView.frame.maxY
+                self.containerViewController!.view.frame.maxY
             )
-            
-            self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
         }
     }
     
@@ -235,9 +199,9 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UITable
     }
     
     /**
-        Refreshes info
+        Get info from api and updates all data
     */
-    func refreshInfo(sender: AnyObject) {
+    func updateAdventureFromAPI(sender: AnyObject) {
         var url: String = api_url + "/adventure/get/" + String(self.adventure!.id)
         var request: NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
@@ -281,8 +245,8 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UITable
                 self.adventure?.image_url = adventureData["static_image_url"] as! String
                 
                 
-                // update info
-                self.updateAdventureDetailInfo()
+                // updates everything
+                self.updateAll()
                 
                 // stop refreshing
                 if (self.refreshControl.refreshing) {
@@ -293,36 +257,11 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UITable
     }
     
     /**
-        Updates adventure detail info.
+        Updates adventure all: detail info, bar info, frame size
     */
-    func updateAdventureDetailInfo() {
-        // TODO: write this func
-        // updates adventure info (date/joined/participants)
-        
-        // update joined info text
-        //        self.joinedLabel.text = self.adventure!.joined
-        
-        // update static map image
-        self.map.image = self.adventure?.getStaticImage()
-        self.infoLabel.text = self.adventure?.info
-        self.creatorUsernameLabel.text = self.adventure?.creator_username
-        self.dateLabel.text = self.adventure?.getFormattedDate()
-        self.joinedLabel.text = String(self.adventure!.joined)
-        
+    func updateAll() {
+        self.containerViewController!.updateAdventureDetailInfo()
         self.updateBarItems()
-        
-        self.participantsTableView.reloadData()
         self.updateContentSize()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
