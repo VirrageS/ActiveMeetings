@@ -48,7 +48,6 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UITable
         // Update info
         self.title = "Details " + String(adventure!.id) // set adventure title
         self.user = currentUser() // get current logged user
-        self.updateBarItems() // update bar
         self.updateAdventureDetailInfo() // update detail info
 
         // delegate scrollView
@@ -155,9 +154,6 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UITable
                             })
                             self.adventure!.joined -= 1
                         }
-                        
-                        self.participantsTableView.reloadData()
-                        self.updateContentSize()
                     }
                     
                     // update adventure
@@ -166,9 +162,6 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UITable
                         // probably adventure does not exists
                         // FIXME: write this statement
                     }
-                    
-                    // update (enabled and title)
-                    self.updateBarItems()
                     
                     // update info (joined and participants)
                     self.updateAdventureDetailInfo()
@@ -284,6 +277,7 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UITable
                         username: participantData["username"] as! String
                     ))
                 }
+                self.adventure?.participants = participants
                 self.adventure?.image_url = adventureData["static_image_url"] as! String
                 
                 
@@ -314,6 +308,11 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UITable
         self.creatorUsernameLabel.text = self.adventure?.creator_username
         self.dateLabel.text = self.adventure?.getFormattedDate()
         self.joinedLabel.text = String(self.adventure!.joined)
+        
+        self.updateBarItems()
+        
+        self.participantsTableView.reloadData()
+        self.updateContentSize()
     }
     
     /*
