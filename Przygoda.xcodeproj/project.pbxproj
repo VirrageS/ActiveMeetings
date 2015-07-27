@@ -35,7 +35,7 @@
 
 /* Begin PBXFileReference section */
 		45C4A2C31B625D4000AF2D89 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		45C4A2C51B626F8800AF2D89 /* AdventuresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventuresViewController.swift; sourceTree = "<group>"; };
+		45C4A2C51B626F8800AF2D89 /* AdventuresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventuresViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		45C4A2CD1B62896300AF2D89 /* AdventuresCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventuresCollectionCell.swift; sourceTree = "<group>"; };
 		45C4A2D11B62A6C800AF2D89 /* AdventureDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventureDetailViewController.swift; sourceTree = "<group>"; };
 		45C4A2D31B62A82F00AF2D89 /* Adventure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adventure.swift; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 		45C4A2DB1B63ABD200AF2D89 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		45D251AB1B3B570100754657 /* Przygoda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Przygoda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D251AF1B3B570100754657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45D251B01B3B570100754657 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		45D251B01B3B570100754657 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		45D251B71B3B570100754657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45D251B91B3B570100754657 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		45D251BC1B3B570100754657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -53,23 +53,6 @@
 		45D251C81B3B570100754657 /* PrzygodaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrzygodaTests.swift; sourceTree = "<group>"; };
 		45D251DB1B3B579600754657 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		45D251A81B3B570100754657 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		45D251BF1B3B570100754657 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		45C4A2D51B62AC7D00AF2D89 /* Classes */ = {
@@ -168,7 +151,6 @@
 			buildConfigurationList = 45D251CC1B3B570100754657 /* Build configuration list for PBXNativeTarget "Przygoda" */;
 			buildPhases = (
 				45D251A71B3B570100754657 /* Sources */,
-				45D251A81B3B570100754657 /* Frameworks */,
 				45D251A91B3B570100754657 /* Resources */,
 			);
 			buildRules = (
@@ -185,7 +167,6 @@
 			buildConfigurationList = 45D251CF1B3B570100754657 /* Build configuration list for PBXNativeTarget "PrzygodaTests" */;
 			buildPhases = (
 				45D251BE1B3B570100754657 /* Sources */,
-				45D251BF1B3B570100754657 /* Frameworks */,
 				45D251C01B3B570100754657 /* Resources */,
 			);
 			buildRules = (

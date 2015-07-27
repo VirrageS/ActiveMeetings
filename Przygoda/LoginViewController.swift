@@ -7,8 +7,9 @@
 //
 
 import Foundation
-
 import UIKit
+
+//import SwiftyJSON
 
 class LoginViewController: UIViewController {
     // MARK: - Outlets

@@ -39,7 +39,6 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
         // get current logged user
         user = currentUser()
         
-        
         // MARK: tabBar init
         self.updateBarItems()
         
@@ -51,32 +50,36 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
     }
     
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
-        var request: NSMutableURLRequest? = nil
+        var url: String? = nil
         
-        if (item == joinItem) {
-            var url: String = ""
+        switch(item) {
+        case joinItem:
             if (joinItem.title == "Join") {
                 url = api_url + "/adventure/join" + "?user_id=" + String(user!.id) + "&adventure_id=" + String(adventure!.id)
             } else if (joinItem.title == "Leave") {
                 url = api_url + "/adventure/leave" + "?user_id=" + String(user!.id) + "&adventure_id=" + String(adventure!.id)
             }
-            request = NSMutableURLRequest()
-            request!.URL = NSURL(string: url)
-            request!.HTTPMethod = "GET"
-        } else if (item == editItem) {
-            var url: String = api_url + "/adventure/edit" + "?user_id=" + String(user!.id) + "&adventure_id=" + String(adventure!.id)
-            request = NSMutableURLRequest()
-            request!.URL = NSURL(string: url)
-            request!.HTTPMethod = "GET"
-        } else if (item == deleteItem) {
-            var url: String = api_url + "/adventure/delete" + "?user_id=" + String(user!.id) + "&adventure_id=" + String(adventure!.id)
-            request = NSMutableURLRequest()
-            request!.URL = NSURL(string: url)
-            request!.HTTPMethod = "GET"
+        case editItem:
+            url = api_url + "/adventure/edit" + "?user_id=" + String(user!.id) + "&adventure_id=" + String(adventure!.id)
+        case deleteItem:
+            url = api_url + "/adventure/delete" + "?user_id=" + String(user!.id) + "&adventure_id=" + String(adventure!.id)
+        default:
+            url = nil
         }
-        
-        if (request != nil) {
-            NSURLConnection.sendAsynchronousRequest(request!, queue: self.adventureDetailsQueue, completionHandler: {(
+
+        if (url != nil) {
+            var request: NSMutableURLRequest = NSMutableURLRequest()
+            request = NSMutableURLRequest()
+            request.URL = NSURL(string: url!)
+            request.HTTPMethod = "GET"
+            
+            // autorization
+            //        let PasswordString = "\(txtUserName.text):\(txtPassword.text)"
+            //        let PasswordData = PasswordString.dataUsingEncoding(NSUTF8StringEncoding)
+            //        let base64EncodedCredential = PasswordData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+            //        request.setValue("Basic \(base64EncodedCredential)", forHTTPHeaderField: "Authorization")
+            
+            NSURLConnection.sendAsynchronousRequest(request, queue: self.adventureDetailsQueue, completionHandler: {(
                 response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
                 
                 var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
@@ -135,6 +138,7 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
                     let result: Bool = self.adventure!.update()
                     if (!result) {
                         // probably adventure does not exists
+                        // FIXME: write this statement
                     }
                     
                     // update (enabled and title)
@@ -154,8 +158,8 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
     
     // MARK: - Custom functions
     /**
-    Updates bar item info.
-    Changes enabled to true or false and title to "Leave" or "Join" in joinItem
+        Updates bar item info.
+        Changes enabled to true or false and title to "Leave" or "Join" in joinItem
     */
     func updateBarItems() {
         // enable buttons
@@ -176,7 +180,7 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
     }
     
     /**
-    Updates adventure detail info.
+        Updates adventure detail info.
     */
     func updateAdventureDetailInfo() {
         // TODO: write this func

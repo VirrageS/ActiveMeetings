@@ -16,6 +16,8 @@ class AdventuresViewController: UICollectionViewController {
     // MARK: Global vars
     // all adventures
     var adventures: [Adventure]?
+    // refresher
+    var refreshControl: UIRefreshControl!
     
     // connection queue
     lazy var allAdventuresQueue: NSOperationQueue = {
@@ -31,11 +33,25 @@ class AdventuresViewController: UICollectionViewController {
         self.title = "Adventures"
         
         // activity indicator have to hide when stopped
-        self.activityIndicator.hidesWhenStopped = true
+        // self.activityIndicator.hidesWhenStopped = true
         
         self.adventures = [
-            Adventure(id: 1, creator_id: 1, creator_username: "1", joined: 1, date: Int(NSDate().timeIntervalSince1970), participants: [(id: 2, username: "Tomek")], image_url: "")
+            Adventure(
+                id: 1,
+                creator_id: 1,
+                creator_username: "1",
+                date: Int(NSDate().timeIntervalSince1970),
+                info: "Some informations about this adventure",
+                joined: 1,
+                participants: [(id: 2, username: "Tomek")],
+                image_url: ""
+            )
         ]
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.collectionView?.addSubview(refreshControl)
 
         // update all adventures
         updateAdventures()
@@ -66,8 +82,9 @@ class AdventuresViewController: UICollectionViewController {
         
         
         let adventuresCell = collectionView.dequeueReusableCellWithReuseIdentifier("AdventuresCell", forIndexPath: indexPath) as! AdventuresCollectionCell
-        adventuresCell.joinedLabel.text = String(self.adventures![indexPath.row].joined)
+        adventuresCell.infoLabel.text = self.adventures![indexPath.row].info
         adventuresCell.dateLabel.text = date
+        adventuresCell.joinedLabel.text = String(self.adventures![indexPath.row].joined)
         adventuresCell.staticImage.image = self.adventures![indexPath.row].getStaticImage()
         
         return adventuresCell as AdventuresCollectionCell
@@ -90,6 +107,16 @@ class AdventuresViewController: UICollectionViewController {
     
     // MARK: - Custom functions
     /**
+        Refreshes adventures
+    
+        :param: sender Object which triggers refreshing
+    */
+    func refresh(sender: AnyObject) {
+        updateAdventures()
+    }
+    
+    
+    /**
         Updates all adventures
         Gets data from api and update them to view controller
     */
@@ -100,22 +127,31 @@ class AdventuresViewController: UICollectionViewController {
         request.HTTPMethod = "GET"
         
         // start animating indicator
-        self.activityIndicator.startAnimating()
+        if (!self.refreshControl.refreshing) {
+            self.activityIndicator.startAnimating()
+        }
         
         NSURLConnection.sendAsynchronousRequest(request, queue: self.allAdventuresQueue, completionHandler: {(
             response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             
             var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
             let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
-            
-            var checkError = false
+
             if (jsonResult == nil) {
-                print(error)
-                
                 // display alert with error
                 dispatch_async(dispatch_get_main_queue()) {
-                    let alert = UIAlertView(title: "Error occured", message: String(stringInterpolationSegment: error), delegate: nil, cancelButtonTitle: "OK")
+                    let alert = UIAlertView(title: "Error occured", message: "Internal error. Please try again", delegate: nil, cancelButtonTitle: "OK")
                     alert.show()
+                    
+                    // stop animating indicator
+                    if (self.activityIndicator.isAnimating()) {
+                        self.activityIndicator.stopAnimating()
+                    }
+                    
+                    // stop refreshing
+                    if (self.refreshControl.refreshing) {
+                        self.refreshControl.endRefreshing()
+                    }
                 }
                 
                 return
@@ -133,13 +169,15 @@ class AdventuresViewController: UICollectionViewController {
                         ))
                     }
                     
+                    self.adventures?.removeAll(keepCapacity: true)
                     self.adventures?.append(
                         Adventure(
                             id: adventureData["id"]!!.longLongValue as Int64,
                             creator_id: adventureData["creator_id"]!!.longLongValue as Int64,
                             creator_username: adventureData["creator_username"] as! String,
-                            joined: adventureData["joined"]!!.longValue as Int,
                             date: adventureData["date"]!!.longValue as Int,
+                            info: adventureData["info"] as! String,
+                            joined: adventureData["joined"]!!.longValue as Int,
                             participants: participants,
                             image_url: adventureData["static_image_url"] as! String
                         )
@@ -150,7 +188,14 @@ class AdventuresViewController: UICollectionViewController {
                 self.collectionView?.reloadData()
                 
                 // stop animating indicator
-                self.activityIndicator.stopAnimating()
+                if (self.activityIndicator.isAnimating()) {
+                    self.activityIndicator.stopAnimating()
+                }
+                
+                // stop refreshing
+                if (self.refreshControl.refreshing) {
+                    self.refreshControl.endRefreshing()
+                }
             }
         })
     }

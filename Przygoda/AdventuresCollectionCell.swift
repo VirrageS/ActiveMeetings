@@ -11,6 +11,7 @@ import UIKit
 class AdventuresCollectionCell: UICollectionViewCell {
     @IBOutlet var joinedLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var infoLabel: UILabel!
     @IBOutlet var staticImage: UIImageView!
 
     override func awakeFromNib() {

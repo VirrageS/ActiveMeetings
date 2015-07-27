@@ -29,7 +29,6 @@ class RegisterViewController: UIViewController {
         let password = passwordTextField.text
 
         var url: String = api_url + "/user/register?username=" + username + "&email=" + email + "&password=" + password + "&confirm=" + password
-
         var request: NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
