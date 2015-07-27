@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		459D0A381B669CAA00EC72B8 /* AdventureDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D0A361B669CAA00EC72B8 /* AdventureDetailTableViewCell.swift */; };
 		45C4A2C41B625D4000AF2D89 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2C31B625D4000AF2D89 /* LoginViewController.swift */; };
 		45C4A2C61B626F8800AF2D89 /* AdventuresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2C51B626F8800AF2D89 /* AdventuresViewController.swift */; };
 		45C4A2CF1B62896300AF2D89 /* AdventuresCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2CD1B62896300AF2D89 /* AdventuresCollectionCell.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		459D0A361B669CAA00EC72B8 /* AdventureDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventureDetailTableViewCell.swift; sourceTree = "<group>"; };
 		45C4A2C31B625D4000AF2D89 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		45C4A2C51B626F8800AF2D89 /* AdventuresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventuresViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		45C4A2CD1B62896300AF2D89 /* AdventuresCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventuresCollectionCell.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		45C4A2D61B62AC8C00AF2D89 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				459D0A361B669CAA00EC72B8 /* AdventureDetailTableViewCell.swift */,
 				45C4A2CD1B62896300AF2D89 /* AdventuresCollectionCell.swift */,
 			);
 			name = Cells;
@@ -251,6 +254,7 @@
 				45C4A2C61B626F8800AF2D89 /* AdventuresViewController.swift in Sources */,
 				45D251E51B3B579600754657 /* HomeViewController.swift in Sources */,
 				45D251B11B3B570100754657 /* AppDelegate.swift in Sources */,
+				459D0A381B669CAA00EC72B8 /* AdventureDetailTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

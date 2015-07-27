@@ -71,7 +71,14 @@ class Adventure: NSObject {
         return nil
     }
     
-    // TODO: finish function
+    func getFormattedDate() -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy HH:MM"
+        let date: NSDate = NSDate(timeIntervalSince1970: NSTimeInterval(self.date))
+        return dateFormatter.stringFromDate(date)
+    }
+    
+    // FIXME: finish function
     /** 
         Updates info from api and return result
 

@@ -73,17 +73,9 @@ class AdventuresViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var date: String {
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "dd.MM.yyyy HH:MM"
-            let date: NSDate = NSDate(timeIntervalSince1970: NSTimeInterval(self.adventures![indexPath.row].date))
-            return dateFormatter.stringFromDate(date)
-        }
-        
-        
         let adventuresCell = collectionView.dequeueReusableCellWithReuseIdentifier("AdventuresCell", forIndexPath: indexPath) as! AdventuresCollectionCell
         adventuresCell.infoLabel.text = self.adventures![indexPath.row].info
-        adventuresCell.dateLabel.text = date
+        adventuresCell.dateLabel.text = self.adventures![indexPath.row].getFormattedDate()
         adventuresCell.joinedLabel.text = String(self.adventures![indexPath.row].joined)
         adventuresCell.staticImage.image = self.adventures![indexPath.row].getStaticImage()
         
@@ -159,6 +151,8 @@ class AdventuresViewController: UICollectionViewController {
             
             // load adventures
             dispatch_async(dispatch_get_main_queue()) {
+                self.adventures?.removeAll(keepCapacity: true)
+                
                 for (_, adventureData) in jsonResult {
                     // get adventure participants
                     var participants: [(id: Int64, username: String)] = []
@@ -169,7 +163,6 @@ class AdventuresViewController: UICollectionViewController {
                         ))
                     }
                     
-                    self.adventures?.removeAll(keepCapacity: true)
                     self.adventures?.append(
                         Adventure(
                             id: adventureData["id"]!!.longLongValue as Int64,

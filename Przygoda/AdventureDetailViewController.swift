@@ -8,7 +8,10 @@
 
 import UIKit
 
-class AdventureDetailViewController: UIViewController, UITabBarDelegate {
+class AdventureDetailViewController: UIViewController, UITabBarDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+    @IBOutlet var scrollView: UIScrollView!
+    
+    
     // MARK: - Tab bar outlets
     @IBOutlet var joinItem: UITabBarItem!
     @IBOutlet var editItem: UITabBarItem!
@@ -17,6 +20,12 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
  
     // MARK: - Detail info outlets
     @IBOutlet var map: UIImageView!
+    @IBOutlet var infoLabel: UILabel!
+    @IBOutlet var creatorUsernameLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var joinedLabel: UILabel!
+    
+    @IBOutlet var participantsTableView: UITableView!
     
     // MARK: - Global vars
     var adventure: Adventure? // opened adventure
@@ -27,26 +36,40 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
         queue.name = "Adventure details queue"
         queue.maxConcurrentOperationCount = 1
         return queue
-        }()
+    }()
+    
+    // refresher
+    var refreshControl: UIRefreshControl!
     
     // MARK: - Main functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set adventure title
-        self.title = "Details " + String(adventure!.id)
+        // Update info
+        self.title = "Details " + String(adventure!.id) // set adventure title
+        self.user = currentUser() // get current logged user
+        self.updateBarItems() // update bar
+        self.updateAdventureDetailInfo() // update detail info
+
+        // delegate scrollView
+        self.scrollView.delegate = self
+        // delegate tableView
+        self.participantsTableView.delegate = self
+        self.participantsTableView.dataSource = self
         
-        // get current logged user
-        user = currentUser()
-        
-        // MARK: tabBar init
-        self.updateBarItems()
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refreshInfo:", forControlEvents: UIControlEvents.ValueChanged)
+        self.scrollView.addSubview(refreshControl)
         
         // delegate bar
         self.bar.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        // MARK: info init
-        self.updateAdventureDetailInfo()
+        updateContentSize()
     }
     
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
@@ -132,6 +155,9 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
                             })
                             self.adventure!.joined -= 1
                         }
+                        
+                        self.participantsTableView.reloadData()
+                        self.updateContentSize()
                     }
                     
                     // update adventure
@@ -151,12 +177,48 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
         }
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.adventure!.participants.count
+    }
+    
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Participants"
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let participantCell = tableView.dequeueReusableCellWithIdentifier("ParticipantCell", forIndexPath: indexPath) as! AdventureDetailTableViewCell
+        participantCell.participantUsernameLabel.text = self.adventure!.participants[indexPath.row].username
+        return participantCell
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Custom functions
+    func updateContentSize() {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.participantsTableView.frame.size.height = self.participantsTableView.contentSize.height
+            self.scrollView.contentSize = CGSizeMake(
+                self.view.frame.width,
+                self.participantsTableView.frame.maxY
+            )
+            
+            self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
+        }
+    }
+    
+    
     /**
         Updates bar item info.
         Changes enabled to true or false and title to "Leave" or "Join" in joinItem
@@ -180,6 +242,63 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
     }
     
     /**
+        Refreshes info
+    */
+    func refreshInfo(sender: AnyObject) {
+        var url: String = api_url + "/adventure/get/" + String(self.adventure!.id)
+        var request: NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "GET"
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: self.adventureDetailsQueue, completionHandler: {(
+            response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            
+            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+            
+            if (jsonResult == nil) {
+                // display alert with error
+                dispatch_async(dispatch_get_main_queue()) {
+                    let alert = UIAlertView(title: "Error occured", message: "Internal error. Please try again", delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
+                    
+                    // stop refreshing
+                    if (self.refreshControl.refreshing) {
+                        self.refreshControl.endRefreshing()
+                    }
+                }
+                
+                return
+            }
+            
+            // load adventures
+            dispatch_async(dispatch_get_main_queue()) {
+                let adventureData = jsonResult
+                self.adventure?.date = adventureData["date"] as! Int
+                self.adventure?.info = adventureData["info"] as! String
+                self.adventure?.joined = adventureData["joined"] as! Int
+                var participants: [(id: Int64, username: String)] = []
+                for (_, participantData) in adventureData["participants"] as! NSDictionary {
+                    participants.append((
+                        id: participantData["id"]!!.longLongValue as Int64,
+                        username: participantData["username"] as! String
+                    ))
+                }
+                self.adventure?.image_url = adventureData["static_image_url"] as! String
+                
+                
+                // update info
+                self.updateAdventureDetailInfo()
+                
+                // stop refreshing
+                if (self.refreshControl.refreshing) {
+                    self.refreshControl.endRefreshing()
+                }
+            }
+        })
+    }
+    
+    /**
         Updates adventure detail info.
     */
     func updateAdventureDetailInfo() {
@@ -191,6 +310,10 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate {
         
         // update static map image
         self.map.image = self.adventure?.getStaticImage()
+        self.infoLabel.text = self.adventure?.info
+        self.creatorUsernameLabel.text = self.adventure?.creator_username
+        self.dateLabel.text = self.adventure?.getFormattedDate()
+        self.joinedLabel.text = String(self.adventure!.joined)
     }
     
     /*
