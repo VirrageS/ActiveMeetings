@@ -12,6 +12,15 @@ class MyAdventuresTableViewController: UITableViewController {
     // MARK: Global vars
     // current logged user
     var user: User?
+    var createdAdventures: [Adventure] = []
+    var joinedAdventures: [Adventure] = []
+    // queue
+    lazy var myAdventuresQueue: NSOperationQueue = {
+        var queue = NSOperationQueue()
+        queue.name = "My adventures queue"
+        queue.maxConcurrentOperationCount = 1
+        return queue
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +37,8 @@ class MyAdventuresTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        fetchUserAdventuresDataFromAPI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,8 +55,14 @@ class MyAdventuresTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        
-        return 2
+        switch (section) {
+        case 0:
+            return createdAdventures.count
+        case 1:
+            return joinedAdventures.count
+        default:
+            return 0
+        }
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -63,14 +80,123 @@ class MyAdventuresTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MyAdventuresCell", forIndexPath: indexPath) as! UITableViewCell
 
-        cell.textLabel?.text = "Something"
-        cell.detailTextLabel?.text = "Something less"
+        switch(indexPath.section) {
+        case 0:
+            cell.textLabel?.text = "created"
+        case 1:
+            cell.textLabel?.text = "joined"
+        default:
+            cell.textLabel?.text = "Default"
+        }
+
         return cell
     }
     
     func updateData(sender: AnyObject) {
-        println("updatingData...")
-        self.refreshControl?.endRefreshing()
+        fetchUserAdventuresDataFromAPI()
+    }
+    
+    func fetchUserAdventuresDataFromAPI() {
+        var url: String = api_url + "/user/get/adventures" + "?user_id=" + String(user!.id)
+        var request: NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "GET"
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: self.myAdventuresQueue, completionHandler: {(
+            response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            
+            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+            
+            if (jsonResult == nil) {
+                // display alert with error
+                dispatch_async(dispatch_get_main_queue()) {
+                    let alert = UIAlertView(title: "Error occured", message: "Internal error. Please try again", delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
+                    
+                    // stop refreshing
+                    self.refreshControl!.endRefreshing()
+                }
+                
+                return
+            }
+            
+            // handle jsonResult "error"
+            if (jsonResult["error"] != nil) {
+                // display error
+                dispatch_async(dispatch_get_main_queue()) {
+                    let alert = UIAlertView(title: "Something Went Wrong", message: jsonResult["error"] as? String, delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
+                    
+                    // stop refreshing
+                    self.refreshControl!.endRefreshing()
+                }
+                
+                return
+            }
+            
+            // load adventures
+            dispatch_async(dispatch_get_main_queue()) {
+                self.createdAdventures.removeAll(keepCapacity: true)
+                self.joinedAdventures.removeAll(keepCapacity: true)
+                
+                // add adventures to created_adventures
+                for (_, adventureData) in jsonResult["created"] as! NSDictionary {
+                    // get adventure participants
+                    var participants: [(id: Int64, username: String)] = []
+                    for (_, participantData) in adventureData["participants"] as! NSDictionary {
+                        participants.append((
+                            id: participantData["id"]!!.longLongValue as Int64,
+                            username: participantData["username"] as! String
+                        ))
+                    }
+                    
+                    self.createdAdventures.append(
+                        Adventure(
+                            id: adventureData["id"]!!.longLongValue as Int64,
+                            creator_id: adventureData["creator_id"]!!.longLongValue as Int64,
+                            creator_username: adventureData["creator_username"] as! String,
+                            date: adventureData["date"]!!.longValue as Int,
+                            info: adventureData["info"] as! String,
+                            joined: adventureData["joined"]!!.longValue as Int,
+                            participants: participants,
+                            image_url: adventureData["static_image_url"] as! String
+                        )
+                    )
+                }
+                
+                // add adventures to joined_adventures
+                for (_, adventureData) in jsonResult["joined"] as! NSDictionary {
+                    // get adventure participants
+                    var participants: [(id: Int64, username: String)] = []
+                    for (_, participantData) in adventureData["participants"] as! NSDictionary {
+                        participants.append((
+                            id: participantData["id"]!!.longLongValue as Int64,
+                            username: participantData["username"] as! String
+                        ))
+                    }
+                    
+                    self.joinedAdventures.append(
+                        Adventure(
+                            id: adventureData["id"]!!.longLongValue as Int64,
+                            creator_id: adventureData["creator_id"]!!.longLongValue as Int64,
+                            creator_username: adventureData["creator_username"] as! String,
+                            date: adventureData["date"]!!.longValue as Int,
+                            info: adventureData["info"] as! String,
+                            joined: adventureData["joined"]!!.longValue as Int,
+                            participants: participants,
+                            image_url: adventureData["static_image_url"] as! String
+                        )
+                    )
+                }
+                
+                // update view
+                self.tableView.reloadData()
+                
+                // stop refreshing
+                self.refreshControl!.endRefreshing()
+            }
+        })
     }
 
     /*
@@ -113,22 +239,20 @@ class MyAdventuresTableViewController: UITableViewController {
         if (segue.destinationViewController is AdventureDetailViewController) {
             let adventureDetailController: AdventureDetailViewController = segue.destinationViewController as! AdventureDetailViewController
             
-            let row: Int = sender as! Int
-            adventureDetailController.adventure = Adventure(
-                id: 1,
-                creator_id: 1,
-                creator_username: "1",
-                date: Int(NSDate().timeIntervalSince1970),
-                info: "Some informations about this adventure",
-                joined: 1,
-                participants: [(id: 2, username: "Tomek")],
-                image_url: ""
-            )
+            let path: NSIndexPath = sender as! NSIndexPath
+            switch(path.section) {
+            case 0:
+                adventureDetailController.adventure = self.createdAdventures[path.row]
+            case 1:
+                adventureDetailController.adventure = self.joinedAdventures[path.row]
+            default:
+                adventureDetailController.adventure = nil
+            }
         }
         
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("showAdventureDetails", sender: indexPath.row)
+        self.performSegueWithIdentifier("showAdventureDetails", sender: indexPath)
     }
 }
