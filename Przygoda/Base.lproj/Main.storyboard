@@ -107,7 +107,7 @@
                                 </subviews>
                             </view>
                             <view contentMode="scaleToFill" id="ZRE-mA-5Xh" userLabel="Password View">
-                                <rect key="frame" x="0.0" y="140" width="319.99999957505554" height="40"/>
+                                <rect key="frame" x="0.0" y="140" width="319.99999952878375" height="40"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="iS4-cx-VnZ">
@@ -172,7 +172,7 @@
                         <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="6UL-4J-hXV">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="color" red="0.96470588239999999" green="0.85490196080000003" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </activityIndicatorView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AdventuresCell" id="xow-20-HRE" customClass="AdventuresCollectionCell" customModule="Przygoda" customModuleProvider="target">
@@ -359,6 +359,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="Uy5-6n-1w1">
+                            <rect key="frame" x="0.0" y="164" width="320" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyAdventuresCell" rowHeight="40" id="qz5-wF-0rw" customClass="MyAdventuresTableViewCell" customModule="Przygoda" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="114" width="320" height="40"/>
@@ -376,6 +381,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="mNl-lx-cc3"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Uy5-6n-1w1" id="W0v-bN-gev"/>
                         <segue destination="t9y-zA-rFi" kind="push" identifier="showAdventureDetails" id="uQN-Cc-vME"/>
                     </connections>
                 </tableViewController>
@@ -441,7 +447,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="mgB-bU-OUe">
-                                        <rect key="frame" x="70.000000536079142" y="5" width="241" height="30"/>
+                                        <rect key="frame" x="70.000000725212857" y="5" width="241" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -460,7 +466,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="0la-Cb-FFN">
-                                        <rect key="frame" x="70.000000536079142" y="5" width="241" height="30"/>
+                                        <rect key="frame" x="70.000000725212857" y="5" width="241" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -472,7 +478,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="yYm-Db-T73">
-                                        <rect key="frame" x="69.999999951487524" y="5" width="242" height="30"/>
+                                        <rect key="frame" x="69.999999934480471" y="5" width="242" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -651,7 +657,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="uQN-Cc-vME"/>
         <segue reference="98y-Lf-rQb"/>
+        <segue reference="Zo7-iy-4ZT"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,6 +9,9 @@
 import UIKit
 
 class MyAdventuresTableViewController: UITableViewController {
+    // MARK: Outlets
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
     // MARK: Global vars
     // current logged user
     var user: User?
@@ -38,7 +41,8 @@ class MyAdventuresTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        fetchUserAdventuresDataFromAPI()
+        self.activityIndicator.startAnimating()
+        self.fetchUserAdventuresDataFromAPI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,9 +61,9 @@ class MyAdventuresTableViewController: UITableViewController {
         // Return the number of rows in the section.
         switch (section) {
         case 0:
-            return createdAdventures.count
+            return self.createdAdventures.count
         case 1:
-            return joinedAdventures.count
+            return self.joinedAdventures.count
         default:
             return 0
         }
@@ -93,7 +97,7 @@ class MyAdventuresTableViewController: UITableViewController {
     }
     
     func updateData(sender: AnyObject) {
-        fetchUserAdventuresDataFromAPI()
+        self.fetchUserAdventuresDataFromAPI()
     }
     
     func fetchUserAdventuresDataFromAPI() {
@@ -114,7 +118,7 @@ class MyAdventuresTableViewController: UITableViewController {
                     let alert = UIAlertView(title: "Error occured", message: "Internal error. Please try again", delegate: nil, cancelButtonTitle: "OK")
                     alert.show()
                     
-                    // stop refreshing
+                    self.activityIndicator.stopAnimating()
                     self.refreshControl!.endRefreshing()
                 }
                 
@@ -128,7 +132,7 @@ class MyAdventuresTableViewController: UITableViewController {
                     let alert = UIAlertView(title: "Something Went Wrong", message: jsonResult["error"] as? String, delegate: nil, cancelButtonTitle: "OK")
                     alert.show()
                     
-                    // stop refreshing
+                    self.activityIndicator.stopAnimating()
                     self.refreshControl!.endRefreshing()
                 }
                 
@@ -193,7 +197,7 @@ class MyAdventuresTableViewController: UITableViewController {
                 // update view
                 self.tableView.reloadData()
                 
-                // stop refreshing
+                self.activityIndicator.stopAnimating()
                 self.refreshControl!.endRefreshing()
             }
         })

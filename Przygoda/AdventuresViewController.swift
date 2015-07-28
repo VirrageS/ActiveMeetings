@@ -132,15 +132,8 @@ class AdventuresViewController: UICollectionViewController {
                     let alert = UIAlertView(title: "Error occured", message: "Internal error. Please try again", delegate: nil, cancelButtonTitle: "OK")
                     alert.show()
                     
-                    // stop animating indicator
-                    if (self.activityIndicator.isAnimating()) {
-                        self.activityIndicator.stopAnimating()
-                    }
-                    
-                    // stop refreshing
-                    if (self.refreshControl.refreshing) {
-                        self.refreshControl.endRefreshing()
-                    }
+                    self.activityIndicator.stopAnimating()
+                    self.refreshControl.endRefreshing()
                 }
                 
                 return
@@ -153,15 +146,8 @@ class AdventuresViewController: UICollectionViewController {
                     let alert = UIAlertView(title: "Something Went Wrong", message: jsonResult["error"] as? String, delegate: nil, cancelButtonTitle: "OK")
                     alert.show()
                     
-                    // stop animating indicator
-                    if (self.activityIndicator.isAnimating()) {
-                        self.activityIndicator.stopAnimating()
-                    }
-                    
-                    // stop refreshing
-                    if (self.refreshControl.refreshing) {
-                        self.refreshControl.endRefreshing()
-                    }
+                    self.activityIndicator.stopAnimating()
+                    self.refreshControl.endRefreshing()
                 }
                 
                 return
@@ -198,15 +184,8 @@ class AdventuresViewController: UICollectionViewController {
                 // update view
                 self.collectionView?.reloadData()
                 
-                // stop animating indicator
-                if (self.activityIndicator.isAnimating()) {
-                    self.activityIndicator.stopAnimating()
-                }
-                
-                // stop refreshing
-                if (self.refreshControl.refreshing) {
-                    self.refreshControl.endRefreshing()
-                }
+                self.activityIndicator.stopAnimating()
+                self.refreshControl.endRefreshing()
             }
         })
     }
