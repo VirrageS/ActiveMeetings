@@ -40,11 +40,8 @@ class LoginViewController: UIViewController {
             
             var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
             let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
-            
-            var checkError = false
+
             if (jsonResult == nil) {
-                print(error)
-                
                 // display alert with error
                 dispatch_async(dispatch_get_main_queue()) {
                     let alert = UIAlertView(title: "Error occured", message: String("Internal error. Please try again."), delegate: nil, cancelButtonTitle: "OK")
@@ -56,8 +53,6 @@ class LoginViewController: UIViewController {
             
             // handle jsonResult "error"
             if (jsonResult["error"] != nil) {
-                print(jsonResult["error"])
-                
                 // display error
                 dispatch_async(dispatch_get_main_queue()) {
                     let alert = UIAlertView(title: "No Account Found", message: "No account found for this email. Have you signed up?", delegate: nil, cancelButtonTitle: "OK")

@@ -146,6 +146,27 @@ class AdventuresViewController: UICollectionViewController {
                 return
             }
             
+            // handle jsonResult "error"
+            if (jsonResult["error"] != nil) {
+                // display error
+                dispatch_async(dispatch_get_main_queue()) {
+                    let alert = UIAlertView(title: "Something Went Wrong", message: jsonResult["error"] as? String, delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
+                    
+                    // stop animating indicator
+                    if (self.activityIndicator.isAnimating()) {
+                        self.activityIndicator.stopAnimating()
+                    }
+                    
+                    // stop refreshing
+                    if (self.refreshControl.refreshing) {
+                        self.refreshControl.endRefreshing()
+                    }
+                }
+                
+                return
+            }
+            
             // load adventures
             dispatch_async(dispatch_get_main_queue()) {
                 self.adventures?.removeAll(keepCapacity: true)

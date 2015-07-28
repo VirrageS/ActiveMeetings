@@ -71,6 +71,11 @@ class Adventure: NSObject {
         return nil
     }
     
+    /**
+        Returns formatted form of adventure date.
+
+        :returns: Formatted adventure date
+    */
     func getFormattedDate() -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy HH:MM"
@@ -78,8 +83,30 @@ class Adventure: NSObject {
         return dateFormatter.stringFromDate(date)
     }
     
+    /**
+        Adds new participant to adventure
+
+        :param: participant Participant who is being added to adventure
+    */
+    func addParticipant(participant: (id: Int64, username: String)) {
+        self.participants.append(participant)
+        self.joined += 1
+    }
+    
+    /**
+        Removes participant from adventure with specified id
+
+        :param: id Participant id which must be removed
+    */
+    func removeParticipant(id: Int64) {
+        self.participants = self.participants.filter({
+            e in return e.id != id
+        })
+        self.joined -= 1
+    }
+    
     // FIXME: finish function
-    /** 
+    /**
         Updates info from api and return result
 
         :returns: false if adventure does not exists, true otherwise

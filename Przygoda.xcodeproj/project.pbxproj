@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		459D0A381B669CAA00EC72B8 /* AdventureDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D0A361B669CAA00EC72B8 /* AdventureDetailTableViewCell.swift */; };
 		459D0A3B1B66BC8100EC72B8 /* AdventureDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D0A3A1B66BC8100EC72B8 /* AdventureDetailContainerViewController.swift */; };
+		459D0A3D1B677A4D00EC72B8 /* MyAdventuresTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D0A3C1B677A4D00EC72B8 /* MyAdventuresTableViewController.swift */; };
+		459D0A3F1B677B1500EC72B8 /* MyAdventuresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D0A3E1B677B1500EC72B8 /* MyAdventuresTableViewCell.swift */; };
 		45C4A2C41B625D4000AF2D89 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2C31B625D4000AF2D89 /* LoginViewController.swift */; };
 		45C4A2C61B626F8800AF2D89 /* AdventuresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2C51B626F8800AF2D89 /* AdventuresViewController.swift */; };
 		45C4A2CF1B62896300AF2D89 /* AdventuresCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2CD1B62896300AF2D89 /* AdventuresCollectionCell.swift */; };
@@ -38,6 +40,8 @@
 /* Begin PBXFileReference section */
 		459D0A361B669CAA00EC72B8 /* AdventureDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventureDetailTableViewCell.swift; sourceTree = "<group>"; };
 		459D0A3A1B66BC8100EC72B8 /* AdventureDetailContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventureDetailContainerViewController.swift; sourceTree = "<group>"; };
+		459D0A3C1B677A4D00EC72B8 /* MyAdventuresTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAdventuresTableViewController.swift; sourceTree = "<group>"; };
+		459D0A3E1B677B1500EC72B8 /* MyAdventuresTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAdventuresTableViewCell.swift; sourceTree = "<group>"; };
 		45C4A2C31B625D4000AF2D89 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		45C4A2C51B626F8800AF2D89 /* AdventuresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventuresViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		45C4A2CD1B62896300AF2D89 /* AdventuresCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventuresCollectionCell.swift; sourceTree = "<group>"; };
@@ -71,8 +75,9 @@
 		45C4A2D61B62AC8C00AF2D89 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				459D0A361B669CAA00EC72B8 /* AdventureDetailTableViewCell.swift */,
 				45C4A2CD1B62896300AF2D89 /* AdventuresCollectionCell.swift */,
+				459D0A361B669CAA00EC72B8 /* AdventureDetailTableViewCell.swift */,
+				459D0A3E1B677B1500EC72B8 /* MyAdventuresTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -139,12 +144,13 @@
 		45D251E61B3B57B200754657 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				45C4A2D91B62C64100AF2D89 /* RegisterViewController.swift */,
+				45D251DB1B3B579600754657 /* HomeViewController.swift */,
 				45C4A2C31B625D4000AF2D89 /* LoginViewController.swift */,
+				45C4A2D91B62C64100AF2D89 /* RegisterViewController.swift */,
 				45C4A2C51B626F8800AF2D89 /* AdventuresViewController.swift */,
 				45C4A2D11B62A6C800AF2D89 /* AdventureDetailViewController.swift */,
 				459D0A3A1B66BC8100EC72B8 /* AdventureDetailContainerViewController.swift */,
-				45D251DB1B3B579600754657 /* HomeViewController.swift */,
+				459D0A3C1B677A4D00EC72B8 /* MyAdventuresTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -247,7 +253,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				459D0A3D1B677A4D00EC72B8 /* MyAdventuresTableViewController.swift in Sources */,
 				45C4A2DA1B62C64100AF2D89 /* RegisterViewController.swift in Sources */,
+				459D0A3F1B677B1500EC72B8 /* MyAdventuresTableViewCell.swift in Sources */,
 				45C4A2C41B625D4000AF2D89 /* LoginViewController.swift in Sources */,
 				45C4A2CF1B62896300AF2D89 /* AdventuresCollectionCell.swift in Sources */,
 				45C4A2D21B62A6C800AF2D89 /* AdventureDetailViewController.swift in Sources */,

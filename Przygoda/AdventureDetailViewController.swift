@@ -44,7 +44,7 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UIScrol
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl.addTarget(self, action: "refreshInfo:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl.addTarget(self, action: "updateAdventureFromAPI:", forControlEvents: UIControlEvents.ValueChanged)
         self.scrollView.addSubview(refreshControl)
         
         // delegate scrollView
@@ -104,8 +104,6 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UIScrol
                 }
                 
                 if (jsonResult["error"] != nil) {
-                    print(jsonResult["error"])
-                    
                     // display error
                     dispatch_async(dispatch_get_main_queue()) {
                         let alert = UIAlertView(title: "Something Went Wrong", message: jsonResult["error"] as? String, delegate: nil, cancelButtonTitle: "OK")
@@ -125,16 +123,12 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UIScrol
                     
                     if (item == self.joinItem) {
                         if (self.joinItem.title == "Join") {
-                            self.adventure!.participants.append((
+                            self.adventure!.addParticipant((
                                 id: self.user!.id as Int64,
                                 username: self.user!.username as String
                             ))
-                            self.adventure!.joined += 1
                         } else if (self.joinItem.title == "Leave") {
-                            self.adventure!.participants = self.adventure!.participants.filter({
-                                e in return e.id != self.user!.id
-                            })
-                            self.adventure!.joined -= 1
+                            self.adventure!.removeParticipant(self.user!.id)
                         }
                     }
                     
@@ -220,9 +214,21 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UIScrol
                     alert.show()
                     
                     // stop refreshing
-                    if (self.refreshControl.refreshing) {
-                        self.refreshControl.endRefreshing()
-                    }
+                    self.refreshControl.endRefreshing()
+                }
+                
+                return
+            }
+            
+            // handle jsonResult "error"
+            if (jsonResult["error"] != nil) {
+                // display error
+                dispatch_async(dispatch_get_main_queue()) {
+                    let alert = UIAlertView(title: "Something Went Wrong", message: jsonResult["error"] as? String, delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
+                    
+                    // stop refreshing
+                    self.refreshControl.endRefreshing()
                 }
                 
                 return
@@ -249,9 +255,7 @@ class AdventureDetailViewController: UIViewController, UITabBarDelegate, UIScrol
                 self.updateAll()
                 
                 // stop refreshing
-                if (self.refreshControl.refreshing) {
-                    self.refreshControl.endRefreshing()
-                }
+                self.refreshControl.endRefreshing()
             }
         })
     }
