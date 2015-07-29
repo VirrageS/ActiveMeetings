@@ -274,17 +274,29 @@
             </objects>
             <point key="canvasLocation" x="1095" y="646"/>
         </scene>
-        <!--New Adventure-->
+        <!--Add Adventure-->
         <scene sceneID="6IC-x0-WVk">
             <objects>
-                <viewController id="QVL-yO-wuu" userLabel="New Adventure" sceneMemberID="viewController">
+                <viewController id="QVL-yO-wuu" userLabel="Add Adventure" customClass="AddAdventureViewController" customModule="Przygoda" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DGy-a2-cBh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" datePickerMode="dateAndTime" minuteInterval="5" id="CJQ-Ja-S5V">
+                                <rect key="frame" x="16" y="405" width="288" height="143"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="459876140.07810497">
+                                    <!--2015-07-29 15:22:20 +0000-->
+                                </date>
+                            </datePicker>
+                            <view contentMode="scaleToFill" id="0zp-Xn-M8W">
+                                <rect key="frame" x="16" y="73" width="288" height="170"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.65416253306878303" green="0.65416253306878303" blue="0.65416253306878303" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <pickerView contentMode="scaleToFill" id="oox-mR-tST">
-                                <rect key="frame" x="0.0" y="209" width="320" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="16" y="267" width="288" height="81"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -292,6 +304,10 @@
                     <navigationItem key="navigationItem" id="0Vb-mo-dMS">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="uDL-Mq-JJz"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="adventureTypePicker" destination="oox-mR-tST" id="ohl-LI-pAJ"/>
+                        <outlet property="dataPicker" destination="CJQ-Ja-S5V" id="9aX-CP-0TF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJh-hj-lVt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

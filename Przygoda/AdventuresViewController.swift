@@ -15,7 +15,7 @@ class AdventuresViewController: UICollectionViewController {
    
     // MARK: Global vars
     // all adventures
-    var adventures: [Adventure]?
+    var adventures: [Adventure] = []
     // refresher
     var refreshControl: UIRefreshControl!
     // connection queue
@@ -31,38 +31,25 @@ class AdventuresViewController: UICollectionViewController {
         super.viewDidLoad()
         self.title = "Adventures"
         
-        self.adventures = [
-            Adventure(
-                id: 1,
-                creator_id: 1,
-                creator_username: "1",
-                date: Int(NSDate().timeIntervalSince1970),
-                info: "Some informations about this adventure",
-                joined: 1,
-                participants: [(id: 2, username: "Tomek")],
-                image_url: ""
-            )
-        ]
-        
         // setting refresh control
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.collectionView?.addSubview(refreshControl)
-
-        // update all adventures
-        updateAdventures()
+        
+        // update data
+        self.fetchAdventuresDataFromAPI()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+    
         // reload data (to refresh changed adventures)
         self.collectionView?.reloadData()
     }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.adventures!.count
+        return self.adventures.count
     }
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -71,10 +58,10 @@ class AdventuresViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let adventuresCell = collectionView.dequeueReusableCellWithReuseIdentifier("AdventuresCell", forIndexPath: indexPath) as! AdventuresCollectionCell
-        adventuresCell.infoLabel.text = self.adventures![indexPath.row].info
-        adventuresCell.dateLabel.text = self.adventures![indexPath.row].getFormattedDate()
-        adventuresCell.joinedLabel.text = String(self.adventures![indexPath.row].joined)
-        adventuresCell.staticImage.image = self.adventures![indexPath.row].getStaticImage()
+        adventuresCell.infoLabel.text = self.adventures[indexPath.row].info
+        adventuresCell.dateLabel.text = self.adventures[indexPath.row].getFormattedDate()
+        adventuresCell.joinedLabel.text = String(self.adventures[indexPath.row].joined)
+        adventuresCell.staticImage.image = self.adventures[indexPath.row].getStaticImage()
         
         return adventuresCell as AdventuresCollectionCell
     }
@@ -85,7 +72,7 @@ class AdventuresViewController: UICollectionViewController {
             let adventureDetailController: AdventureDetailViewController = segue.destinationViewController as! AdventureDetailViewController
             
             let row: Int = sender as! Int
-            adventureDetailController.adventure = self.adventures![row]
+            adventureDetailController.adventure = self.adventures[row]
         }
         
     }
@@ -101,7 +88,7 @@ class AdventuresViewController: UICollectionViewController {
         :param: sender Object which triggers refreshing
     */
     func refresh(sender: AnyObject) {
-        updateAdventures()
+        self.fetchAdventuresDataFromAPI()
     }
     
     
@@ -109,7 +96,7 @@ class AdventuresViewController: UICollectionViewController {
         Updates all adventures
         Gets data from api and update them to view controller
     */
-    func updateAdventures() {
+    func fetchAdventuresDataFromAPI() {
         var url: String = api_url + "/adventure/get/all"
         var request: NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
@@ -155,7 +142,7 @@ class AdventuresViewController: UICollectionViewController {
             
             // load adventures
             dispatch_async(dispatch_get_main_queue()) {
-                self.adventures?.removeAll(keepCapacity: true)
+                self.adventures.removeAll(keepCapacity: true)
                 
                 for (_, adventureData) in jsonResult {
                     // get adventure participants
@@ -167,7 +154,7 @@ class AdventuresViewController: UICollectionViewController {
                         ))
                     }
                     
-                    self.adventures?.append(
+                    self.adventures.append(
                         Adventure(
                             id: adventureData["id"]!!.longLongValue as Int64,
                             creator_id: adventureData["creator_id"]!!.longLongValue as Int64,

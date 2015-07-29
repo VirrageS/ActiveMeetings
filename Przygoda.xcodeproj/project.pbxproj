@@ -11,6 +11,7 @@
 		459D0A3B1B66BC8100EC72B8 /* AdventureDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D0A3A1B66BC8100EC72B8 /* AdventureDetailContainerViewController.swift */; };
 		459D0A3D1B677A4D00EC72B8 /* MyAdventuresTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D0A3C1B677A4D00EC72B8 /* MyAdventuresTableViewController.swift */; };
 		459D0A3F1B677B1500EC72B8 /* MyAdventuresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D0A3E1B677B1500EC72B8 /* MyAdventuresTableViewCell.swift */; };
+		459D0A411B6928AC00EC72B8 /* AddAdventureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D0A401B6928AC00EC72B8 /* AddAdventureViewController.swift */; };
 		45C4A2C41B625D4000AF2D89 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2C31B625D4000AF2D89 /* LoginViewController.swift */; };
 		45C4A2C61B626F8800AF2D89 /* AdventuresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2C51B626F8800AF2D89 /* AdventuresViewController.swift */; };
 		45C4A2CF1B62896300AF2D89 /* AdventuresCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A2CD1B62896300AF2D89 /* AdventuresCollectionCell.swift */; };
@@ -42,6 +43,7 @@
 		459D0A3A1B66BC8100EC72B8 /* AdventureDetailContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventureDetailContainerViewController.swift; sourceTree = "<group>"; };
 		459D0A3C1B677A4D00EC72B8 /* MyAdventuresTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAdventuresTableViewController.swift; sourceTree = "<group>"; };
 		459D0A3E1B677B1500EC72B8 /* MyAdventuresTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAdventuresTableViewCell.swift; sourceTree = "<group>"; };
+		459D0A401B6928AC00EC72B8 /* AddAdventureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAdventureViewController.swift; sourceTree = "<group>"; };
 		45C4A2C31B625D4000AF2D89 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		45C4A2C51B626F8800AF2D89 /* AdventuresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventuresViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		45C4A2CD1B62896300AF2D89 /* AdventuresCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdventuresCollectionCell.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				45C4A2D11B62A6C800AF2D89 /* AdventureDetailViewController.swift */,
 				459D0A3A1B66BC8100EC72B8 /* AdventureDetailContainerViewController.swift */,
 				459D0A3C1B677A4D00EC72B8 /* MyAdventuresTableViewController.swift */,
+				459D0A401B6928AC00EC72B8 /* AddAdventureViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				45C4A2DA1B62C64100AF2D89 /* RegisterViewController.swift in Sources */,
 				459D0A3F1B677B1500EC72B8 /* MyAdventuresTableViewCell.swift in Sources */,
 				45C4A2C41B625D4000AF2D89 /* LoginViewController.swift in Sources */,
+				459D0A411B6928AC00EC72B8 /* AddAdventureViewController.swift in Sources */,
 				45C4A2CF1B62896300AF2D89 /* AdventuresCollectionCell.swift in Sources */,
 				45C4A2D21B62A6C800AF2D89 /* AdventureDetailViewController.swift in Sources */,
 				45C4A2D41B62A82F00AF2D89 /* Adventure.swift in Sources */,

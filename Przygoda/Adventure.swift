@@ -100,7 +100,7 @@ class Adventure: NSObject {
     */
     func removeParticipant(id: Int64) {
         self.participants = self.participants.filter({
-            e in return e.id != id
+            participant in return participant.id != id
         })
         self.joined -= 1
     }
@@ -115,4 +115,12 @@ class Adventure: NSObject {
         
         return true
     }
+}
+
+enum AdventureTypes: String {
+    case RECREATIONAL = "rekreacyjny"
+    case AMATEURISH = "amatorski"
+    case DOWNHILL = "downhill"
+    
+    static let values = [(id: 0, type: RECREATIONAL), (id: 1, type: AMATEURISH), (id: 2, type: DOWNHILL)]
 }
