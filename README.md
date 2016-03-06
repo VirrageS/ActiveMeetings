@@ -2,7 +2,7 @@
 
 The best way to find enthusiasts of bike tours.
 
-Przygoda iOS is native application of [Bike Adventures](http://www.sportoweprzygody.pl) which make it easier
+Przygoda iOS is native application of [main application](https://github.com/VirrageS/przygoda) which make it easier
 to connect and create awesome bike rides.
 
 ## Main application
